@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>朱攀</title>
+  <title>个人博客</title>
   
   <subtitle>学习管理的前端工程师</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cipuzp.com/"/>
-  <updated>2018-10-09T05:17:49.067Z</updated>
+  <updated>2018-10-09T09:27:15.674Z</updated>
   <id>http://www.cipuzp.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://www.cipuzp.com/2018/10/09/test/"/>
+    <id>http://www.cipuzp.com/2018/10/09/test/</id>
+    <published>2018-10-09T09:26:14.000Z</published>
+    <updated>2018-10-09T09:27:15.674Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="测试文章"><a href="#测试文章" class="headerlink" title="测试文章"></a>测试文章</h1><p>本文章用于测试</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;测试文章&quot;&gt;&lt;a href=&quot;#测试文章&quot; class=&quot;headerlink&quot; title=&quot;测试文章&quot;&gt;&lt;/a&gt;测试文章&lt;/h1&gt;&lt;p&gt;本文章用于测试&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
