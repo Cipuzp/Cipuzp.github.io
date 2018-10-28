@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>JS-Web-API | 个人博客 | 学习管理的前端工程师</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="JS-Web-API 常说的 JS(浏览器执行的 JS)包含两部分  JS 基础知识(ECMA262 标准) JS-Web-API(W3C 标准)   W3C 标准中的关于 JS 的规定：  DOM 操作 BOM 操作 事件绑定 ajax 请求(包括 http 协议) 储存   页面弹框是 window.alert(123)，浏览器需要做什么？  定义一个 window 全局变量，对象类型 给它定">
+<meta name="keywords" content="技术、阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS-Web-API">
+<meta property="og:url" content="http://www.cipuzp.com/2018/10/28/JS-Web-API/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="JS-Web-API 常说的 JS(浏览器执行的 JS)包含两部分  JS 基础知识(ECMA262 标准) JS-Web-API(W3C 标准)   W3C 标准中的关于 JS 的规定：  DOM 操作 BOM 操作 事件绑定 ajax 请求(包括 http 协议) 储存   页面弹框是 window.alert(123)，浏览器需要做什么？  定义一个 window 全局变量，对象类型 给它定">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-10-28T07:04:29.922Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS-Web-API">
+<meta name="twitter:description" content="JS-Web-API 常说的 JS(浏览器执行的 JS)包含两部分  JS 基础知识(ECMA262 标准) JS-Web-API(W3C 标准)   W3C 标准中的关于 JS 的规定：  DOM 操作 BOM 操作 事件绑定 ajax 请求(包括 http 协议) 储存   页面弹框是 window.alert(123)，浏览器需要做什么？  定义一个 window 全局变量，对象类型 给它定">
+    
+        <link rel="alternate" type="application/atom+xml" title="个人博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">朱攀</h5>
+          <a href="mailto:1556567686@qq.com" title="1556567686@qq.com" class="mail">1556567686@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                友情链接
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/vue-travel" target="_blank" >
+                <i class="icon icon-lg icon-vue-travel"></i>
+                Vue仿去哪儿项目
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JS-Web-API</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JS-Web-API</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-10-28T07:04:17.425Z" itemprop="datePublished" class="page-time">
+  2018-10-28
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JS-Web-API"><span class="post-toc-number">1.</span> <span class="post-toc-text">JS-Web-API</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DOM-操作-Document、Object、Model"><span class="post-toc-number">2.</span> <span class="post-toc-text">DOM 操作(Document、Object、Model)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BOM-操作-Browser、Object、Model"><span class="post-toc-number">3.</span> <span class="post-toc-text">BOM 操作(Browser、Object、Model)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#事件"><span class="post-toc-number">4.</span> <span class="post-toc-text">事件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Ajax"><span class="post-toc-number">5.</span> <span class="post-toc-text">Ajax</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#存储"><span class="post-toc-number">6.</span> <span class="post-toc-text">存储</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-JS-Web-API"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JS-Web-API</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-10-28 15:04:17" datetime="2018-10-28T07:04:17.425Z"  itemprop="datePublished">2018-10-28</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="JS-Web-API"><a href="#JS-Web-API" class="headerlink" title="JS-Web-API"></a>JS-Web-API</h2><ul>
+<li><p>常说的 JS(浏览器执行的 JS)包含两部分</p>
+<ol>
+<li>JS 基础知识(ECMA262 标准)</li>
+<li>JS-Web-API(W3C 标准)</li>
+</ol>
+</li>
+<li><p>W3C 标准中的关于 JS 的规定：</p>
+<ol>
+<li>DOM 操作</li>
+<li>BOM 操作</li>
+<li>事件绑定</li>
+<li>ajax 请求(包括 http 协议)</li>
+<li>储存</li>
+</ol>
+</li>
+<li><p>页面弹框是 window.alert(123)，浏览器需要做什么？</p>
+<ol>
+<li>定义一个 window 全局变量，对象类型</li>
+<li>给它定义一个 alert 属性，属性值是一个函数</li>
+</ol>
+</li>
+<li><p>W3C 的管辖范围</p>
+<ol>
+<li>不管什么变量类型、原型、作用域和异步</li>
+<li>只管定义用于浏览器中 JS 操作页面的 API 的全局变量</li>
+</ol>
+</li>
+</ul>
+<h2 id="DOM-操作-Document、Object、Model"><a href="#DOM-操作-Document、Object、Model" class="headerlink" title="DOM 操作(Document、Object、Model)"></a>DOM 操作(Document、Object、Model)</h2><ul>
+<li><p>题目</p>
+<ol>
+<li>DOM 是哪种基本的数据结构？<ul>
+<li>树</li>
+</ul>
+</li>
+<li>DOM 操作的常用 API 有哪些？<ul>
+<li>获取 DOM 节点，以及节点的 property 和 attribute</li>
+<li>获取父节点，获取子节点</li>
+<li>新增节点，删除节点</li>
+</ul>
+</li>
+<li>DOM 节点的 property 和 attribute 有何区别？<ul>
+<li>property 只是一个 JS 对象的属性的修改</li>
+<li>attribute 是对 html 标签属性的修改</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>知识点</p>
+</li>
+</ul>
+<ol>
+<li><p>DOM 本质<br><code>浏览器把拿到的html代码，结构化一个浏览器能识别并且JS课操作的一个模型</code></p>
+</li>
+<li><p>DOM 节点操作</p>
+<ul>
+<li>获取 DOM 节点<br><code>document.getElementById</code> 元素<br><code>document.getElementsByTagName</code> 集合<br><code>document.getElementsByClassName</code> 集合<br><code>document.querySelectorAll</code> 集合</li>
+<li>property</li>
+<li>attribute</li>
+</ul>
+</li>
+<li>DOM 结构操作<ul>
+<li>新增节点<br><code>createElement</code><br><code>appendChild</code></li>
+<li>获取父元素<br><code>parentElement</code></li>
+<li>获取子元素<br><code>chilidNodes</code></li>
+<li>删除节点<br><code>removeNode</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="BOM-操作-Browser、Object、Model"><a href="#BOM-操作-Browser、Object、Model" class="headerlink" title="BOM 操作(Browser、Object、Model)"></a>BOM 操作(Browser、Object、Model)</h2><ul>
+<li><p>题目</p>
+<ol>
+<li><p>如何检测浏览器的类型？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ua = navigator.userAgent</span><br><span class="line"><span class="keyword">var</span> isChrome = ua.indexOf(<span class="string">'chrome'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(isChrome)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解析 URL 的各部分</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(location.href)</span><br><span class="line"><span class="built_in">console</span>.log(location.protocol)</span><br><span class="line"><span class="built_in">console</span>.log(location.host)</span><br><span class="line"><span class="built_in">console</span>.log(location.pathname)</span><br><span class="line"><span class="built_in">console</span>.log(location.search)</span><br><span class="line"><span class="built_in">console</span>.log(location.hash)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>知识点</p>
+<ol>
+<li><p>navigator</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ua = navigator.userAgent</span><br><span class="line"><span class="keyword">var</span> isChrome = ua.indexOf(<span class="string">'chrome'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(isChrome)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>screen</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(screen.width)</span><br><span class="line"><span class="built_in">console</span>.log(screen.height)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>location</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(location.href)</span><br><span class="line"><span class="built_in">console</span>.log(location.protocol)</span><br><span class="line"><span class="built_in">console</span>.log(location.host)</span><br><span class="line"><span class="built_in">console</span>.log(location.pathname)</span><br><span class="line"><span class="built_in">console</span>.log(location.search)</span><br><span class="line"><span class="built_in">console</span>.log(location.hash)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>history</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">history.back()</span><br><span class="line">history.forward()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><ul>
+<li>题目</li>
+</ul>
+<ol>
+<li>编写一个通过的事件监听函数</li>
+<li>描述时间冒泡流程<ul>
+<li>DOM 树形结构</li>
+<li>事件冒泡</li>
+<li>阻止冒泡</li>
+<li>冒泡的应用</li>
+</ul>
+</li>
+<li>对于一个无限下拉加载图片的页面，如何给每个图片绑定事件<ul>
+<li>使用代理<br><code>好处：</code>代码简介、减少浏览器内存占用</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>知识点</li>
+</ul>
+<ol>
+<li><p>通过事件绑定</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bindEvent</span>(<span class="params">elem,type,fn</span>)</span>&#123;</span><br><span class="line">  elem.addEventListener(type,fn)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = doument.getElementById(<span class="string">'link1'</span>)</span><br><span class="line">bindEvent(a,<span class="string">'click'</span>,funtion(e)&#123;</span><br><span class="line">  e.preventDefault()</span><br><span class="line">  alert(<span class="string">'clicked'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//优化版本</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bindEvent</span>(<span class="params">elem,type,selector,fn</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(fn == <span class="literal">null</span>)&#123;</span><br><span class="line">    fn = selector</span><br><span class="line">    seletor = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  elem.addEventListener(type,funtion(e)&#123;</span><br><span class="line">    <span class="keyword">var</span> target</span><br><span class="line">    <span class="keyword">if</span>(seletor)&#123;</span><br><span class="line">      target = e.target</span><br><span class="line">      <span class="keyword">if</span>(target.matches(selector))&#123;</span><br><span class="line">        fn.call(target,e)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      fn(e)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>事件冒泡</p>
+</li>
+<li><p>代理</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a2<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a3<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a4<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div1 = doument.getElementById(<span class="string">'div1'</span>)</span><br><span class="line">div1.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> target = e.target</span><br><span class="line">  <span class="keyword">if</span> (target.nodeName === <span class="string">'A'</span>) &#123;</span><br><span class="line">    alert(target.innerHTML)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><ul>
+<li>题目</li>
+</ul>
+<ol>
+<li>手动编写一个 ajax，不依赖第三方库</li>
+<li>跨域的几种实现方式<ul>
+<li>JSONP</li>
+<li>服务器端设置 http header</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>知识点</li>
+</ul>
+<ol>
+<li><p>XMLHttpRequest</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">xhr.open(<span class="string">'GET'</span>, <span class="string">'/api'</span>, <span class="literal">false</span>)</span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">//这里的函数异步执行，可参考之前JS基础中的异步模块</span></span><br><span class="line">  <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">      alert(xhr.responseText)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.send(<span class="literal">null</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>状态码说明<br><strong>readyState 说明</strong></p>
+<ul>
+<li><code>0(未初始化)</code>还没有调用 send()方法</li>
+<li><code>1(载入)</code>已调用 send()方法，正在发送请求</li>
+<li><code>2(载入完成)</code>send()方法执行完成，已经接受到全部响应内容</li>
+<li><code>3(交互)</code>正在解析响应内容</li>
+<li><code>4(完成)</code>响应内容解析完成，可以在客户端调用了<br><strong>status 说明</strong></li>
+<li><code>2XX</code>-表示成功处理请求，如：200</li>
+<li><code>3XX</code>-需要重定向，浏览器直接跳转</li>
+<li><code>4XX</code>-客户端请求错误，如：404</li>
+<li><code>5XX</code>-服务器端错误</li>
+</ul>
+</li>
+<li><p>跨域<br>3.1 什么是跨域</p>
+<ol>
+<li>浏览器有同源策略，不允许 Ajax 访问其他域接口</li>
+<li>跨域条件：协议、域名、端口，有一个不同就算跨域<br>(http:80)(https:443)</li>
+<li>允许跨域的三个标签<br><code>&lt;img&gt;</code>用于打点统计，统计网站可能是其他域<br><code>&lt;link&gt;</code>、<code>&lt;script&gt;</code>可以使用 CDN，CDN 的也是其他域<br><code>&lt;script&gt;</code>用于 JSONP</li>
+<li>跨域注意事项<br>所有的跨域秦秋都必须经过信息提供方允许<br>如果未经允许即可获取，那是浏览器同源策略出现漏洞</li>
+</ol>
+</li>
+</ol>
+<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><ul>
+<li>题目</li>
+</ul>
+<ol>
+<li><p>请描述以下 cookie，sessionStorage 和 localStorage 的区别<br>容量、是否会携带到 ajax(cookie 会)、API 易用性</p>
+<p>1.1 <strong>cookie</strong></p>
+<ul>
+<li><p>用于客户端和服务器端通信，有本地储存的功能，需要使用 document.cookie = …封装<br> <code>缺点：</code>储存量太小，只有 4KB；所有 http 请求都带着，会影响获取资源的效率；API 简单，需要封装才能用</p>
+<p>1.2 <strong>sessionStorage</strong>和<strong>localStorage</strong></p>
+</li>
+<li><p>HTML5 专门为储存而设计，最大容量 5M</p>
+</li>
+<li><p>API 简单易用:<br><code>localStorage.setItem(key,value);</code></p>
+<p><code>localStorage.getItem(key);</code></p>
+</li>
+<li><p>ios safari 隐藏模式下 localStorage.getItem 会报错，建议统一使用 try-catch 封装</p>
+</li>
+</ul>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-10-28T07:04:29.922Z" itemprop="dateUpdated">2018-10-28 15:04:29</time>
+</span><br>
+
+
+        
+        当前路径：<a href="/2018/10/28/JS-Web-API/" target="_blank" rel="external">http://www.cipuzp.com/2018/10/28/JS-Web-API/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://www.cipuzp.com">
+            <img src="/img/avatar.jpg" alt="朱攀">
+            朱攀
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/10/28/JS-Web-API/&title=《JS-Web-API》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/10/28/JS-Web-API/&title=《JS-Web-API》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/10/28/JS-Web-API/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS-Web-API》 — 个人博客&url=http://www.cipuzp.com/2018/10/28/JS-Web-API/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/10/28/JS-Web-API/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/10/28/模块化/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">模块化</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/28/JS 常见题目/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">JS 常见题目</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>
+                <a href="/atom.xml" target="_blank" class="rss" title="rss">
+                    <i class="icon icon-lg icon-rss"></i>
+                </a>
+            </span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                朱攀 &copy;
+                
+                2015 -
+                
+                2018</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/10/28/JS-Web-API/&title=《JS-Web-API》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/10/28/JS-Web-API/&title=《JS-Web-API》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/10/28/JS-Web-API/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JS-Web-API》 — 个人博客&url=http://www.cipuzp.com/2018/10/28/JS-Web-API/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/10/28/JS-Web-API/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNklEQVR42u3aS47CMBBF0ex/0+lJD5C6be4rBySXr0coApMTpML1uS687pf1euXve9LXo3V9YsmQIWNbBtlutPX8+uimyT3EVBkyZBzAmN8i2Xr+KbIP2WF4XYYMGTJA6LzBmgNkyJAhY51B0ksScOc7y5AhQ8ZKEstLYyngq7m4DBkyNmTwqvv3X3+kvyFDhoytGHe4niroP/Wp38/KkCGjNaPWwqw1O0mhjbRChwdQGTJkNGXwhiI/0tXS1/SA+M/vIEOGjKYMnrimx8FaqyAN5QgjQ4aMdgz+NbUkNm2dPlAdlCFDxuaMWgrKk8ynnnRQNZQhQ0ZTRm1gi0e8tDBHgn4wvyZDhozNGbVjXFpQqwXuOK2VIUNGU0YacNOWJLmeprhBf0OGDBktGGnRnx8KOb52ozJkyDiNQQ6CJETOvyx9P2+LypAhozejOIWBg2Pa+OQHx+B3kCFDRgsGH5JIW55pIE6bqW86sTJkyGjNWIlpaXhdCeJX+nRlyJCxIWNlxIGMVvAwSqioqCdDhoymjA+OamFwrdAmQ4aMkxnrDQB+TKy1PFHAlSFDRiNGrZHJ0+BiOhqOg8iQIaMr4w5XGgTX02DUKpAhQ0Zrxnq0fopaa3DGMBkyZGzLqLUhOWllpEOGDBkyeDOAB0p+rKz9Awx3liFDhgw8BrGSlJJvDOqFMmTIOJixUhpbeWRvgrIMGTIOYPDEMh3LSENncU8ZMmS0ZvDUsRbl4rkP3LCUIUPGAYwfImKEmuj7jbYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '朱攀个人博客！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
