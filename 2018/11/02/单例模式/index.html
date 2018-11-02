@@ -21,20 +21,18 @@
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="单例模式1. 特点 系统中被唯一使用 一个类只有一个实例 单例模式需要用到 java 的特性（private） ES6 中没有（ts 除外）  2. UML 演示                                                                                             在这里插入图片描述              3.">
+    <meta name="description" content="单例模式1. 特点 系统中被唯一使用 一个类只有一个实例 单例模式需要用到 java 的特性（private） ES6 中没有（ts 除外）  2. UML 演示-&amp;gt; 点击查看 3. 代码演示 java 代码 1234567891011121314151617181920 public class SingleObject&amp;#123;      //唯一被 new 出来的对象   priva">
 <meta name="keywords" content="技术、阅读">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单例模式">
 <meta property="og:url" content="http://www.cipuzp.com/2018/11/02/单例模式/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="单例模式1. 特点 系统中被唯一使用 一个类只有一个实例 单例模式需要用到 java 的特性（private） ES6 中没有（ts 除外）  2. UML 演示                                                                                             在这里插入图片描述              3.">
+<meta property="og:description" content="单例模式1. 特点 系统中被唯一使用 一个类只有一个实例 单例模式需要用到 java 的特性（private） ES6 中没有（ts 除外）  2. UML 演示-&amp;gt; 点击查看 3. 代码演示 java 代码 1234567891011121314151617181920 public class SingleObject&amp;#123;      //唯一被 new 出来的对象   priva">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20181102140913316.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NpcHV6cA==,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2018-11-02T06:17:37.562Z">
+<meta property="og:updated_time" content="2018-11-02T06:22:56.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单例模式">
-<meta name="twitter:description" content="单例模式1. 特点 系统中被唯一使用 一个类只有一个实例 单例模式需要用到 java 的特性（private） ES6 中没有（ts 除外）  2. UML 演示                                                                                             在这里插入图片描述              3.">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20181102140913316.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NpcHV6cA==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:description" content="单例模式1. 特点 系统中被唯一使用 一个类只有一个实例 单例模式需要用到 java 的特性（private） ES6 中没有（ts 除外）  2. UML 演示-&amp;gt; 点击查看 3. 代码演示 java 代码 1234567891011121314151617181920 public class SingleObject&amp;#123;      //唯一被 new 出来的对象   priva">
     
         <link rel="alternate" type="application/atom+xml" title="个人博客" href="/atom.xml">
     
@@ -204,13 +202,7 @@
 <li>单例模式需要用到 java 的特性（private）</li>
 <li>ES6 中没有（ts 除外）</li>
 </ul>
-<h2 id="2-UML-演示"><a href="#2-UML-演示" class="headerlink" title="2. UML 演示"></a>2. UML 演示</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://img-blog.csdnimg.cn/20181102140913316.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NpcHV6cA==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述" title="">
-                </div>
-                <div class="image-caption">在这里插入图片描述</div>
-            </figure>
+<h2 id="2-UML-演示"><a href="#2-UML-演示" class="headerlink" title="2. UML 演示"></a>2. UML 演示</h2><p>-&gt; <a href="https://img-blog.csdnimg.cn/20181102142047567.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NpcHV6cA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">点击查看</a></p>
 <h2 id="3-代码演示"><a href="#3-代码演示" class="headerlink" title="3. 代码演示"></a>3. 代码演示</h2><ul>
 <li><p>java 代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingleObject</span></span>&#123;</span><br><span class="line">      <span class="comment">//唯一被 new 出来的对象</span></span><br><span class="line">   <span class="keyword">private</span> SingleObject instance = <span class="keyword">null</span>;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//私有化构造函数，外部不能有 new，只能内部 new</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> <span class="title">SingleObject</span><span class="params">()</span></span>&#123;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//获取对象的唯一接口</span></span><br><span class="line">   <span class="function"><span class="keyword">private</span> SingleObject <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">     <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">       <span class="comment">//只 new 一次</span></span><br><span class="line">       instance = <span class="keyword">new</span> SingleObject();</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> instance;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//对象方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showMessage</span><span class="params">()</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="string">"show..."</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -239,7 +231,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-11-02T06:17:37.562Z" itemprop="dateUpdated">2018-11-02 14:17:37</time>
+    最后更新时间：<time datetime="2018-11-02T06:22:56.282Z" itemprop="dateUpdated">2018-11-02 14:22:56</time>
 </span><br>
 
 
@@ -318,7 +310,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/11/02/适配器模式/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">适配器模式</h4>
+      </a>
+    </div>
   
 
   
