@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Unix/Linux设计准则 | 个人博客 | 学习管理的前端工程师</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Unix/Linux设计准则 看似简单。事实上，它们简单到会容易使人们忽略其重要性。这就是它们颇具欺骗性的地方。其实，简单的外表下掩盖着一个事实：如果人们能够始终如一的贯彻它们，这些准则可是非常行之有效的。   以下这份清单会让你对Unix哲学的准则有初步的认识。   小即是美。相对于同类庞然大物，小巧的事物有着其无可比拟的巨大优势。其中一点就是它们能够以独特有效的方式结合其他小事务，而且这种方式">
+<meta name="keywords" content="技术、阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unix&#x2F;Linux设计准则">
+<meta property="og:url" content="http://www.cipuzp.com/2018/11/01/Unix_Linux设计准则/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="Unix/Linux设计准则 看似简单。事实上，它们简单到会容易使人们忽略其重要性。这就是它们颇具欺骗性的地方。其实，简单的外表下掩盖着一个事实：如果人们能够始终如一的贯彻它们，这些准则可是非常行之有效的。   以下这份清单会让你对Unix哲学的准则有初步的认识。   小即是美。相对于同类庞然大物，小巧的事物有着其无可比拟的巨大优势。其中一点就是它们能够以独特有效的方式结合其他小事务，而且这种方式">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-01T06:22:00.108Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unix&#x2F;Linux设计准则">
+<meta name="twitter:description" content="Unix/Linux设计准则 看似简单。事实上，它们简单到会容易使人们忽略其重要性。这就是它们颇具欺骗性的地方。其实，简单的外表下掩盖着一个事实：如果人们能够始终如一的贯彻它们，这些准则可是非常行之有效的。   以下这份清单会让你对Unix哲学的准则有初步的认识。   小即是美。相对于同类庞然大物，小巧的事物有着其无可比拟的巨大优势。其中一点就是它们能够以独特有效的方式结合其他小事务，而且这种方式">
+    
+        <link rel="alternate" type="application/atom+xml" title="个人博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">朱攀</h5>
+          <a href="mailto:1556567686@qq.com" title="1556567686@qq.com" class="mail">1556567686@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                友情链接
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/vue-travel" target="_blank" >
+                <i class="icon icon-lg icon-vue-travel"></i>
+                Vue仿去哪儿项目
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Unix/Linux设计准则</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Unix/Linux设计准则</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-01T06:21:24.953Z" itemprop="datePublished" class="page-time">
+  2018-11-01
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Unix-Linux设计准则"><span class="post-toc-number">1.</span> <span class="post-toc-text">Unix/Linux设计准则</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Unix_Linux设计准则"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Unix/Linux设计准则</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-01 14:21:24" datetime="2018-11-01T06:21:24.953Z"  itemprop="datePublished">2018-11-01</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Unix-Linux设计准则"><a href="#Unix-Linux设计准则" class="headerlink" title="Unix/Linux设计准则"></a>Unix/Linux设计准则</h1><blockquote>
+<p>看似简单。事实上，它们简单到会容易使人们忽略其重要性。这就是它们颇具欺骗性的地方。其实，简单的外表下掩盖着一个事实：如果人们能够始终如一的贯彻它们，这些准则可是非常行之有效的。</p>
+</blockquote>
+<blockquote>
+<p>以下这份清单会让你对Unix哲学的准则有初步的认识。</p>
+</blockquote>
+<ol>
+<li><p>小即是美。相对于同类庞然大物，小巧的事物有着其无可比拟的巨大优势。其中一点就是它们能够以独特有效的方式结合其他小事务，而且这种方式往往是最初的设计者没能预见的。</p>
+</li>
+<li><p>让每一个程序只做好一件事情。通过集中精力应对单一任务，程序可以减少冗余代码，从而避免过高的开销、不必要的复杂性和缺乏灵活性。</p>
+</li>
+<li><p>尽快建立原型。大多数人认同“建立原型是任何项目的一个重要组成部分。在其他方法论中，建立原型只是设计中一个不太重要的组成部分，然而，在Unix环境下它却是达成完美设计的主要工具。</p>
+</li>
+<li><p>舍高效率而取可移植性。当Unix作为第一个可移植系统而开创先河时，它曾经掀起过轩然大波。今天，可移植性早被视作现代软件设计中一个理所当然的特性，这更加充分说明这条Unix准则早就在Unix之外的系统中获得了广泛认可。</p>
+</li>
+<li><p>使用纯文本文件来存储数据。舍高效率而取可移植性强调了可移植代码的重要性。其实可移植性数据的重要性绝不亚于可移植代码。在关于可移植性的准则中，人们往往容易忽视可移植性数据。</p>
+</li>
+<li><p>充分利用软件的杠杆效应。很多程序员对可重用代码模块的重要性只有一些肤浅认识。代码重用能帮助人们充分利用软件的杠杆效应。一些Unix的开发人员正是遵循这个强大的理念，在相对较短的时间内编写出了大量应用程序。</p>
+</li>
+<li><p>使用shell脚本来提高杠杆效应和可移植性。shell脚本在软件设计中可谓是一把双刃剑，它可以加强软件的可重用性和可移植性。无论什么时候，只要有可能，编写shell脚本来替代C语言程序都不失为一个良好的选择。</p>
+</li>
+<li><p>避免强制性的用户界面。Unix开发人员非常了解，有一些命令用户界面为什么会被称为是“强制性的”用户界面。这些命令在运行的时候会阻止用户去运行其他命令，这样用户就会成为这些系统的囚徒。在图形用户界面中，这样的界面被称为”模态“。</p>
+</li>
+<li><p>让每一个程序都成为过滤器。所有软件程序共有的最基本特性就是，它们只是修改而从不创造数据。因此，基于软件的过滤器本质，人们就应该把它们编写成执行过滤器任务的程序。</p>
+</li>
+</ol>
+<blockquote>
+<p>以上列出Unix开发人员所奉行的信条。这些都是大家公认的Unix基本理念。如果你也采用这些标准，那么人们就会认为你是一个”Unix人“。</p>
+</blockquote>
+<blockquote>
+<p>下面还列出了10条次要准则，这些准则正在渐渐发展成Unix世界信奉体系的一个组成部分。并非每个与Unix打交道的人都会将它们奉为信条，而且在严格意义上其中一些不能算作是Unix的特性。不过，它们看起来依然是Unix文化（当然地也包括Linux文化）不可或缺的一部分。</p>
+</blockquote>
+<ol>
+<li><p>允许用户定制环境。Unix用户喜欢掌控系统环境，并且是整个环境。很多Unix应用程序绝对不会一刀切地使用交互风格，而是将选择的权利交给用户。它的基本思想就是，程序应该只是提供解决问题的机制，而不是为解决问题的方法限定标准。让用户探索属于自己的通往计算机的家境之路吧。</p>
+</li>
+<li><p>尽量使操作系统内核小而轻巧。尽管对新功能的追求永无止境，Unix开发人员还是喜欢让操作系统最核心部分保持最小的规模。当然，他们并不总是能做到这一点，但这是他们的目标。</p>
+</li>
+<li><p>使用小写字母，并尽量保持简短。使用小写字母是Unix环境中的传统，尽管这么做的理由已不复存在，但人们还是保留了这个传统。今天，许多Unix用户之所以要使用小写的命令和神秘的名字，不再是因为有其限制条件，而是他们就喜欢这么做。</p>
+</li>
+<li><p>保护树木。Unix用户普遍不太赞成使用纸质文档。而是在线存储所有文字档案。此外，使用功能强大的在线工具来处理文件是非常环保的做法。</p>
+</li>
+<li><p>沉默是金。在需要提供出错信息的时候，Unix命令是出了名的喜欢保持沉默。虽然很多经验丰富的Unix用户认为这是可取得做法，可其他操作系统的用户却并不赞同这种观点。</p>
+</li>
+<li><p>并行思考。大多数任务都能分解成更小的子任务。这些子任务可以并行运行，因而，在完成一项大任务的时间内，可以完成更多子任务。今天已涌现出大量对称处理（symmetric multiprocessing，SMP）设计，这说明计算机行业正朝着并行处理的方向发展。</p>
+</li>
+<li><p>各部分之和大于整体。小程序集合而成的大型应用程序比单个的大程序更灵活，也更为实用，本条准则正式源于此想法。两种解决方案可能具备同样的功能，可集合小程序的做法更具有前瞻性。</p>
+</li>
+<li><p>寻找90%的解决方案。百分百的完成任何事情都是很困难的。完成90%的目标会更有效率，并且更节省成本。Unix开发人员总是在寻找能够满足目标用户90%要求的解决方案，剩下的10%则任其自生自灭。</p>
+</li>
+<li><p>更坏就是更好。Unix爱好者认为具有”最小公分母“的系统是最容易存活的系统。比起高品质而昂贵的系统，那些便宜但有效的系统更容易得到普及。于是，PC兼容机的世界从Unix世界借鉴了此想法，并取得了巨大成功。这其中的关键字就是包容。如果某一事物的包容性强到足以涵盖几乎所有事物，那它就比那些”独家”系统要好得多。</p>
+</li>
+<li><p>层次化思考。Unix用户和开发人员都喜欢层次来组织事物。例如，Unix目录结构是最早将树结构应用于文件系统的架构之一。Unix的层次化思考已扩展到其他领域，如网络服务命名器、窗口管理、面向对象开发。</p>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-01T06:22:00.108Z" itemprop="dateUpdated">2018-11-01 14:22:00</time>
+</span><br>
+
+
+        
+        当前路径：<a href="/2018/11/01/Unix_Linux设计准则/" target="_blank" rel="external">http://www.cipuzp.com/2018/11/01/Unix_Linux设计准则/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://www.cipuzp.com">
+            <img src="/img/avatar.jpg" alt="朱攀">
+            朱攀
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/01/Unix_Linux设计准则/&title=《Unix/Linux设计准则》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/01/Unix_Linux设计准则/&title=《Unix/Linux设计准则》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/01/Unix_Linux设计准则/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unix/Linux设计准则》 — 个人博客&url=http://www.cipuzp.com/2018/11/01/Unix_Linux设计准则/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/01/Unix_Linux设计准则/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/11/02/工厂模式JS/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">工厂模式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/10/30/数据协商/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">数据协商</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>
+                <a href="/atom.xml" target="_blank" class="rss" title="rss">
+                    <i class="icon icon-lg icon-rss"></i>
+                </a>
+            </span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                朱攀 &copy;
+                
+                2015 -
+                
+                2018</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/01/Unix_Linux设计准则/&title=《Unix/Linux设计准则》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/01/Unix_Linux设计准则/&title=《Unix/Linux设计准则》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/01/Unix_Linux设计准则/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Unix/Linux设计准则》 — 个人博客&url=http://www.cipuzp.com/2018/11/01/Unix_Linux设计准则/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/01/Unix_Linux设计准则/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3ay66CUAwFUP//p73JnSq423M0oSxGhiCwGDR9PR7x8fw/8itfj6NrkvPbDgwMjMsynqfHEePoYeevkrzo63OTT4OBgXEHxsrtoscUo2X+bhgYGBhLQfA0WJ8niBgYGBgrATcpa5NE8/zTYGBgYPSK2N75aqj9ei2OgYFxQUZ1MPDL31+cb2BgYFyEsbd9Vi1rq+H18P4YGBijGbvGk9UhaNLIKxfPGBgYQxm9cjRv6FfXNZKy9s31GBgYN2Dkba/1l64mmuWRAAYGxjjG+t+S4JuEzpX0EQMDYzajtzzRa5+tB/RCEYuBgTGUsaE1n5edC2XzGxIGBsZoRq/131uJ2PW6UTGMgYExiJEXlgmgkMwtl9AYGBgYvcfnqxgrbTsMDIy7Maots10JYn4mh2FgYMxm5Ounu1pseepZHmRiYGCMZvRSvWoqWR2OFq7EwMC4MWP9wXsXOw4/HAYGxo0ZveI2H1LmQ82o0YaBgTGOkbfSqo22vIm2IfhiYGDcgJGXpkl4Xblz9fO92cPFwMAYx1hp1lcXxZJBad5u+5DhYmBgDGI8i0cvuayOEMphHQMDYzRjfZ2r0NUrrl+sF9IYGBiTGPla2K5EMP8QX9luw8DAuCyj12+vlr4JvhemMTAwMJJkLlmqqK6dFf6LgYGBEQ8y82uqI4EPSxgYGBg3YOQt/l67v7e6Ufh8GBgYoxm9ArLamFtv2CXnMTAwxjH+ABAZ2xnq8uw2AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '朱攀个人博客！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

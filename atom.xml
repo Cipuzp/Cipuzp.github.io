@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cipuzp.com/"/>
-  <updated>2018-10-30T12:05:34.872Z</updated>
+  <updated>2018-11-02T04:47:00.876Z</updated>
   <id>http://www.cipuzp.com/</id>
   
   <author>
@@ -15,6 +15,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>工厂模式</title>
+    <link href="http://www.cipuzp.com/2018/11/02/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8FJS/"/>
+    <id>http://www.cipuzp.com/2018/11/02/工厂模式JS/</id>
+    <published>2018-11-02T04:38:53.632Z</published>
+    <updated>2018-11-02T04:47:00.876Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h1><h2 id="1-UML-描述"><a href="#1-UML-描述" class="headerlink" title="1. UML 描述"></a>1. UML 描述</h2><p><img src="./img/image/工厂模式.jpg"></p><h2 id="2-代码演示"><a href="#2-代码演示" class="headerlink" title="2. 代码演示"></a>2. 代码演示</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Product</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  init() &#123;</span><br><span class="line">    alert(<span class="string">'init'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  fn1() &#123;</span><br><span class="line">    alert(<span class="string">'fn1'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  fn2() &#123;</span><br><span class="line">    alert(<span class="string">'fn2'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Creator</span> </span>&#123;</span><br><span class="line">  create(name) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Product(name)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">let</span> creator = <span class="keyword">new</span> Creator()</span><br><span class="line"><span class="keyword">let</span> p = creator.create(<span class="string">'p1'</span>)</span><br><span class="line">p.init()</span><br><span class="line">p.fn1()</span><br></pre></td></tr></table></figure><h2 id="3-场景"><a href="#3-场景" class="headerlink" title="3. 场景"></a>3. 场景</h2><h3 id="3-1-jQuery-‘div’"><a href="#3-1-jQuery-‘div’" class="headerlink" title="3.1 jQuery - $(‘div’)"></a>3.1 jQuery - $(‘div’)</h3><ul><li><code>$(&#39;div&#39;)</code>和<code>new $(&#39;&#39;div)</code>有何区别</li><li>前者是工厂模式</li><li>书写麻烦,jQuery 的链式操作将成为噩梦</li><li>一旦 jQuery 名称变化会有问题</li></ul><h3 id="3-2-React-createElement"><a href="#3-2-React-createElement" class="headerlink" title="3.2 React.createElement"></a>3.2 React.createElement</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> profile = &lt;div&gt;</span><br><span class="line">&lt;img src="avatar.png" className="profile"/&gt;</span><br><span class="line">&lt;h3&gt;&#123;[</span><br><span class="line">  user.firstName,</span><br><span class="line">  user.lastName</span><br><span class="line">  ].join(' ')</span><br><span class="line">  &#125;&lt;/h3&gt;</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> profile = React.createElement(</span><br><span class="line">  <span class="string">'div'</span>,</span><br><span class="line">  <span class="literal">null</span>,</span><br><span class="line">  react.createElement(<span class="string">'img'</span>, &#123;</span><br><span class="line">    src: <span class="string">'avatar.png'</span>,</span><br><span class="line">    className: <span class="string">'profile'</span></span><br><span class="line">  &#125;),</span><br><span class="line">  React.createElement(<span class="string">'h3'</span>, <span class="literal">null</span>, [user.firstName, user.lastName].join(<span class="string">' '</span>))</span><br><span class="line">)</span><br></pre></td></tr></table></figure><h3 id="3-3-vue-异步组件"><a href="#3-3-vue-异步组件" class="headerlink" title="3.3 vue 异步组件"></a>3.3 vue 异步组件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(<span class="string">'async-demo'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    resolve(&#123;</span><br><span class="line">      template: <span class="string">'&lt;div&gt;async&lt;/div&gt;'</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h2 id="4-设计原则"><a href="#4-设计原则" class="headerlink" title="4. 设计原则"></a>4. 设计原则</h2><ul><li><p>构造函数和创建者分离</p></li><li><p>符合开放封闭原则</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;工厂模式&quot;&gt;&lt;a href=&quot;#工厂模式&quot; class=&quot;headerlink&quot; title=&quot;工厂模式&quot;&gt;&lt;/a&gt;工厂模式&lt;/h1&gt;&lt;h2 id=&quot;1-UML-描述&quot;&gt;&lt;a href=&quot;#1-UML-描述&quot; class=&quot;headerlink&quot; title=&quot;1
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Unix/Linux设计准则</title>
+    <link href="http://www.cipuzp.com/2018/11/01/Unix_Linux%E8%AE%BE%E8%AE%A1%E5%87%86%E5%88%99/"/>
+    <id>http://www.cipuzp.com/2018/11/01/Unix_Linux设计准则/</id>
+    <published>2018-11-01T06:21:24.953Z</published>
+    <updated>2018-11-01T06:22:00.108Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Unix-Linux设计准则"><a href="#Unix-Linux设计准则" class="headerlink" title="Unix/Linux设计准则"></a>Unix/Linux设计准则</h1><blockquote><p>看似简单。事实上，它们简单到会容易使人们忽略其重要性。这就是它们颇具欺骗性的地方。其实，简单的外表下掩盖着一个事实：如果人们能够始终如一的贯彻它们，这些准则可是非常行之有效的。</p></blockquote><blockquote><p>以下这份清单会让你对Unix哲学的准则有初步的认识。</p></blockquote><ol><li><p>小即是美。相对于同类庞然大物，小巧的事物有着其无可比拟的巨大优势。其中一点就是它们能够以独特有效的方式结合其他小事务，而且这种方式往往是最初的设计者没能预见的。</p></li><li><p>让每一个程序只做好一件事情。通过集中精力应对单一任务，程序可以减少冗余代码，从而避免过高的开销、不必要的复杂性和缺乏灵活性。</p></li><li><p>尽快建立原型。大多数人认同“建立原型是任何项目的一个重要组成部分。在其他方法论中，建立原型只是设计中一个不太重要的组成部分，然而，在Unix环境下它却是达成完美设计的主要工具。</p></li><li><p>舍高效率而取可移植性。当Unix作为第一个可移植系统而开创先河时，它曾经掀起过轩然大波。今天，可移植性早被视作现代软件设计中一个理所当然的特性，这更加充分说明这条Unix准则早就在Unix之外的系统中获得了广泛认可。</p></li><li><p>使用纯文本文件来存储数据。舍高效率而取可移植性强调了可移植代码的重要性。其实可移植性数据的重要性绝不亚于可移植代码。在关于可移植性的准则中，人们往往容易忽视可移植性数据。</p></li><li><p>充分利用软件的杠杆效应。很多程序员对可重用代码模块的重要性只有一些肤浅认识。代码重用能帮助人们充分利用软件的杠杆效应。一些Unix的开发人员正是遵循这个强大的理念，在相对较短的时间内编写出了大量应用程序。</p></li><li><p>使用shell脚本来提高杠杆效应和可移植性。shell脚本在软件设计中可谓是一把双刃剑，它可以加强软件的可重用性和可移植性。无论什么时候，只要有可能，编写shell脚本来替代C语言程序都不失为一个良好的选择。</p></li><li><p>避免强制性的用户界面。Unix开发人员非常了解，有一些命令用户界面为什么会被称为是“强制性的”用户界面。这些命令在运行的时候会阻止用户去运行其他命令，这样用户就会成为这些系统的囚徒。在图形用户界面中，这样的界面被称为”模态“。</p></li><li><p>让每一个程序都成为过滤器。所有软件程序共有的最基本特性就是，它们只是修改而从不创造数据。因此，基于软件的过滤器本质，人们就应该把它们编写成执行过滤器任务的程序。</p></li></ol><blockquote><p>以上列出Unix开发人员所奉行的信条。这些都是大家公认的Unix基本理念。如果你也采用这些标准，那么人们就会认为你是一个”Unix人“。</p></blockquote><blockquote><p>下面还列出了10条次要准则，这些准则正在渐渐发展成Unix世界信奉体系的一个组成部分。并非每个与Unix打交道的人都会将它们奉为信条，而且在严格意义上其中一些不能算作是Unix的特性。不过，它们看起来依然是Unix文化（当然地也包括Linux文化）不可或缺的一部分。</p></blockquote><ol><li><p>允许用户定制环境。Unix用户喜欢掌控系统环境，并且是整个环境。很多Unix应用程序绝对不会一刀切地使用交互风格，而是将选择的权利交给用户。它的基本思想就是，程序应该只是提供解决问题的机制，而不是为解决问题的方法限定标准。让用户探索属于自己的通往计算机的家境之路吧。</p></li><li><p>尽量使操作系统内核小而轻巧。尽管对新功能的追求永无止境，Unix开发人员还是喜欢让操作系统最核心部分保持最小的规模。当然，他们并不总是能做到这一点，但这是他们的目标。</p></li><li><p>使用小写字母，并尽量保持简短。使用小写字母是Unix环境中的传统，尽管这么做的理由已不复存在，但人们还是保留了这个传统。今天，许多Unix用户之所以要使用小写的命令和神秘的名字，不再是因为有其限制条件，而是他们就喜欢这么做。</p></li><li><p>保护树木。Unix用户普遍不太赞成使用纸质文档。而是在线存储所有文字档案。此外，使用功能强大的在线工具来处理文件是非常环保的做法。</p></li><li><p>沉默是金。在需要提供出错信息的时候，Unix命令是出了名的喜欢保持沉默。虽然很多经验丰富的Unix用户认为这是可取得做法，可其他操作系统的用户却并不赞同这种观点。</p></li><li><p>并行思考。大多数任务都能分解成更小的子任务。这些子任务可以并行运行，因而，在完成一项大任务的时间内，可以完成更多子任务。今天已涌现出大量对称处理（symmetric multiprocessing，SMP）设计，这说明计算机行业正朝着并行处理的方向发展。</p></li><li><p>各部分之和大于整体。小程序集合而成的大型应用程序比单个的大程序更灵活，也更为实用，本条准则正式源于此想法。两种解决方案可能具备同样的功能，可集合小程序的做法更具有前瞻性。</p></li><li><p>寻找90%的解决方案。百分百的完成任何事情都是很困难的。完成90%的目标会更有效率，并且更节省成本。Unix开发人员总是在寻找能够满足目标用户90%要求的解决方案，剩下的10%则任其自生自灭。</p></li><li><p>更坏就是更好。Unix爱好者认为具有”最小公分母“的系统是最容易存活的系统。比起高品质而昂贵的系统，那些便宜但有效的系统更容易得到普及。于是，PC兼容机的世界从Unix世界借鉴了此想法，并取得了巨大成功。这其中的关键字就是包容。如果某一事物的包容性强到足以涵盖几乎所有事物，那它就比那些”独家”系统要好得多。</p></li><li><p>层次化思考。Unix用户和开发人员都喜欢层次来组织事物。例如，Unix目录结构是最早将树结构应用于文件系统的架构之一。Unix的层次化思考已扩展到其他领域，如网络服务命名器、窗口管理、面向对象开发。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Unix-Linux设计准则&quot;&gt;&lt;a href=&quot;#Unix-Linux设计准则&quot; class=&quot;headerlink&quot; title=&quot;Unix/Linux设计准则&quot;&gt;&lt;/a&gt;Unix/Linux设计准则&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;看似简单。事实上，
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>数据协商</title>
