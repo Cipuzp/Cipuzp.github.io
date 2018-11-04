@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="JS-Web-API 常说的 JS(浏览器执行的 JS)包含两部分  JS 基础知识(ECMA262 标准) JS-Web-API(W3C 标准)   W3C 标准中的关于 JS 的规定：  DOM 操作 BOM 操作 事件绑定 ajax 请求(包括 http 协议) 储存   页面弹框是 window.alert(123)，浏览器需要做什么？  定义一个 window 全局变量，对象类型 给它定">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-28T07:04:29.922Z">
+<meta property="og:updated_time" content="2018-11-02T14:50:05.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS-Web-API">
 <meta name="twitter:description" content="JS-Web-API 常说的 JS(浏览器执行的 JS)包含两部分  JS 基础知识(ECMA262 标准) JS-Web-API(W3C 标准)   W3C 标准中的关于 JS 的规定：  DOM 操作 BOM 操作 事件绑定 ajax 请求(包括 http 协议) 储存   页面弹框是 window.alert(123)，浏览器需要做什么？  定义一个 window 全局变量，对象类型 给它定">
@@ -350,7 +350,10 @@
 <li><code>1(载入)</code>已调用 send()方法，正在发送请求</li>
 <li><code>2(载入完成)</code>send()方法执行完成，已经接受到全部响应内容</li>
 <li><code>3(交互)</code>正在解析响应内容</li>
-<li><code>4(完成)</code>响应内容解析完成，可以在客户端调用了<br><strong>status 说明</strong></li>
+<li><code>4(完成)</code>响应内容解析完成，可以在客户端调用了  </li>
+</ul>
+<p><strong>status 说明</strong></p>
+<ul>
 <li><code>2XX</code>-表示成功处理请求，如：200</li>
 <li><code>3XX</code>-需要重定向，浏览器直接跳转</li>
 <li><code>4XX</code>-客户端请求错误，如：404</li>
@@ -373,11 +376,11 @@
 <li><p>请描述以下 cookie，sessionStorage 和 localStorage 的区别<br>容量、是否会携带到 ajax(cookie 会)、API 易用性</p>
 <p>1.1 <strong>cookie</strong></p>
 <ul>
-<li><p>用于客户端和服务器端通信，有本地储存的功能，需要使用 document.cookie = …封装<br> <code>缺点：</code>储存量太小，只有 4KB；所有 http 请求都带着，会影响获取资源的效率；API 简单，需要封装才能用</p>
+<li>用于客户端和服务器端通信，有本地储存的功能，需要使用 document.cookie = …封装<br> <code>缺点：</code>储存量太小，只有 4KB；所有 http 请求都带着，会影响获取资源的效率；API 简单，需要封装才能用</li>
+</ul>
 <p>1.2 <strong>sessionStorage</strong>和<strong>localStorage</strong></p>
-</li>
-<li><p>HTML5 专门为储存而设计，最大容量 5M</p>
-</li>
+<ul>
+<li>HTML5 专门为储存而设计，最大容量 5M</li>
 <li><p>API 简单易用:<br><code>localStorage.setItem(key,value);</code></p>
 <p><code>localStorage.getItem(key);</code></p>
 </li>
@@ -394,7 +397,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-28T07:04:29.922Z" itemprop="dateUpdated">2018-10-28 15:04:29</time>
+    最后更新时间：<time datetime="2018-11-02T14:50:05.728Z" itemprop="dateUpdated">2018-11-02 22:50:05</time>
 </span><br>
 
 
