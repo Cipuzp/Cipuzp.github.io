@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>状态模式 | 个人博客 | 学习管理的前端工程师</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="状态模式1. 介绍 一个对象有状态变化 每次状态变化都会触发一个逻辑 不能总是用 if…else 来控制  2. UML 演示点击查看 3. 代码演示12345678910111213141516171819202122232425262728293031323334353637383940class State &amp;#123;  constructor(color) &amp;#123;    this.">
+<meta name="keywords" content="技术、阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="状态模式">
+<meta property="og:url" content="http://www.cipuzp.com/2018/11/05/状态模式/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="状态模式1. 介绍 一个对象有状态变化 每次状态变化都会触发一个逻辑 不能总是用 if…else 来控制  2. UML 演示点击查看 3. 代码演示12345678910111213141516171819202122232425262728293031323334353637383940class State &amp;#123;  constructor(color) &amp;#123;    this.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-05T14:10:47.646Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="状态模式">
+<meta name="twitter:description" content="状态模式1. 介绍 一个对象有状态变化 每次状态变化都会触发一个逻辑 不能总是用 if…else 来控制  2. UML 演示点击查看 3. 代码演示12345678910111213141516171819202122232425262728293031323334353637383940class State &amp;#123;  constructor(color) &amp;#123;    this.">
+    
+        <link rel="alternate" type="application/atom+xml" title="个人博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">朱攀</h5>
+          <a href="mailto:1556567686@qq.com" title="1556567686@qq.com" class="mail">1556567686@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                友情链接
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/vue-travel" target="_blank" >
+                <i class="icon icon-lg icon-vue-travel"></i>
+                Vue仿去哪儿项目
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">状态模式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">状态模式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-05T14:09:53.331Z" itemprop="datePublished" class="page-time">
+  2018-11-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#状态模式"><span class="post-toc-number">1.</span> <span class="post-toc-text">状态模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-介绍"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-UML-演示"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. UML 演示</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-代码演示"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. 代码演示</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-场景"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4. 场景</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-1-有限状态机"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">4.1 有限状态机</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-写一个简单的-Promise"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">4.2 写一个简单的 Promise</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-设计原则"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5. 设计原则</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-状态模式"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">状态模式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-05 22:09:53" datetime="2018-11-05T14:09:53.331Z"  itemprop="datePublished">2018-11-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><ul>
+<li>一个对象有状态变化</li>
+<li>每次状态变化都会触发一个逻辑</li>
+<li>不能总是用 if…else 来控制</li>
+</ul>
+<h2 id="2-UML-演示"><a href="#2-UML-演示" class="headerlink" title="2. UML 演示"></a>2. UML 演示</h2><p><a href="https://img-blog.csdnimg.cn/20181105220938875.jpg" target="_blank" rel="noopener">点击查看</a></p>
+<h2 id="3-代码演示"><a href="#3-代码演示" class="headerlink" title="3. 代码演示"></a>3. 代码演示</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">State</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(color) &#123;</span><br><span class="line">    <span class="keyword">this</span>.color = color</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  handle(context) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`turn to <span class="subst">$&#123;<span class="keyword">this</span>.color&#125;</span> light`</span>)</span><br><span class="line">    context.setState(<span class="keyword">this</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//主体</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Context</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.state = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//获取状态</span></span><br><span class="line">  getState() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.state</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  setState(state) &#123;</span><br><span class="line">    <span class="keyword">this</span>.state = state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//test</span></span><br><span class="line"><span class="keyword">let</span> context = <span class="keyword">new</span> Context()</span><br><span class="line"><span class="keyword">let</span> green = <span class="keyword">new</span> State(<span class="string">'green'</span>)</span><br><span class="line"><span class="keyword">let</span> yellow = <span class="keyword">new</span> State(<span class="string">'yellow'</span>)</span><br><span class="line"><span class="keyword">let</span> red = <span class="keyword">new</span> State(<span class="string">'red'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//绿灯亮</span></span><br><span class="line">green.handle(context)</span><br><span class="line"><span class="built_in">console</span>.log(context.getState())</span><br><span class="line"><span class="comment">//红灯亮</span></span><br><span class="line">red.handle(context)</span><br><span class="line"><span class="built_in">console</span>.log(context.getState())</span><br><span class="line"><span class="comment">//黄灯亮</span></span><br><span class="line">yellow.handle(context)</span><br><span class="line"><span class="built_in">console</span>.log(context.getState())</span><br></pre></td></tr></table></figure>
+<h2 id="4-场景"><a href="#4-场景" class="headerlink" title="4. 场景"></a>4. 场景</h2><h3 id="4-1-有限状态机"><a href="#4-1-有限状态机" class="headerlink" title="4.1 有限状态机"></a>4.1 有限状态机</h3><ul>
+<li>有限个状态、以及在这些状态之间的变化</li>
+<li>交通灯</li>
+<li><p>开源 lib：<a href="https://github.com/jakesgordon/javascript-state-machine" title="点击进入" target="_blank" rel="noopener">javascript-state-machine</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fsm = <span class="keyword">new</span> StateMachine(&#123;</span><br><span class="line">  init: <span class="string">'待收藏'</span>, <span class="comment">//初始状态，待收藏</span></span><br><span class="line">  transitions: [</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">'doStore'</span>,</span><br><span class="line">      <span class="keyword">from</span>: <span class="string">'待收藏'</span>,</span><br><span class="line">      to: <span class="string">'取消收藏'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">'deleteStore'</span>,</span><br><span class="line">      <span class="keyword">from</span>: <span class="string">'取消收藏'</span>,</span><br><span class="line">      to: <span class="string">'收藏'</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  methods: &#123;</span><br><span class="line">    <span class="comment">//执行收藏</span></span><br><span class="line">    onDoStore: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(<span class="string">'收藏成功'</span>)</span><br><span class="line">      updateText()</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//取消收藏</span></span><br><span class="line">    onDeleteStore: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      alert(<span class="string">'已取消收藏'</span>)</span><br><span class="line">      updateText()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $btn = $(<span class="string">'#btn'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//点击事件</span></span><br><span class="line">$btn.click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (fsm.is(<span class="string">'待收藏'</span>)) &#123;</span><br><span class="line">    fsm.doStore()</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    fsm.deleteStore()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//更新</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateText</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  $btn.text(fsm.state)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//初始化文章</span></span><br><span class="line">updateText()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="4-2-写一个简单的-Promise"><a href="#4-2-写一个简单的-Promise" class="headerlink" title="4.2 写一个简单的 Promise"></a>4.2 写一个简单的 Promise</h3><ul>
+<li>是一个类</li>
+<li>需要传一个函数</li>
+<li>需要接受<code>resolve</code>,<code>reject</code>这两个参数</li>
+<li>返回 then 方法，接受两个参数</li>
+<li>三种状态<code>pending</code>、<code>fullfilled</code>、<code>rejected</code></li>
+<li><code>pending</code>-&gt;<code>fullfilled</code>或者<code>pending</code>-&gt;<code>rejected</code>，不能逆向变</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyPromise</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(fn) &#123;</span><br><span class="line">    <span class="keyword">this</span>.successList = []</span><br><span class="line">    <span class="keyword">this</span>.failList = []</span><br><span class="line"></span><br><span class="line">    fn(</span><br><span class="line">      () =&gt; &#123;</span><br><span class="line">        <span class="comment">//resolve函数</span></span><br><span class="line">        fsm.resolve(<span class="keyword">this</span>)</span><br><span class="line">      &#125;,</span><br><span class="line">      () =&gt; &#123;</span><br><span class="line">        <span class="comment">//reject函数</span></span><br><span class="line">        fsm.reject(<span class="keyword">this</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  then(successFn, failFn) &#123;</span><br><span class="line">    <span class="keyword">this</span>.successList.push(successFn)</span><br><span class="line">    <span class="keyword">this</span>.failList.push(failFn)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//状态机</span></span><br><span class="line"><span class="keyword">var</span> StateMachine = <span class="built_in">require</span>(<span class="string">'javascript-state-machine'</span>)</span><br><span class="line"><span class="keyword">var</span> fsm = <span class="keyword">new</span> StateMachine(&#123;</span><br><span class="line">  inti: <span class="string">'pending'</span>,</span><br><span class="line">  transitions: [</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">'resolve'</span>,</span><br><span class="line">      form: <span class="string">'pending'</span>,</span><br><span class="line">      to: <span class="string">'fullfilled'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      name: <span class="string">'reject'</span>,</span><br><span class="line">      form: <span class="string">'pending'</span>,</span><br><span class="line">      to: <span class="string">'rejected'</span></span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  methods: &#123;</span><br><span class="line">    <span class="comment">//成功</span></span><br><span class="line">    onResolve: <span class="function"><span class="keyword">function</span>(<span class="params">state, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//state - 当前状态示例；data - fsm.resolve(xxx)执行时传递过来的参数</span></span><br><span class="line">      data.successList.forEach(<span class="function"><span class="params">fn</span> =&gt;</span> fn())</span><br><span class="line">    &#125;,</span><br><span class="line">    onReject: <span class="function"><span class="keyword">function</span>(<span class="params">state, data</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//state - 当前状态示例；data - fsm.reject(xxx)执行时传递过来的参数</span></span><br><span class="line">      data.failList.forEach(<span class="function"><span class="params">fn</span> =&gt;</span> fn())</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试代码</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">loadImg</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> img = <span class="built_in">document</span>.createElement(<span class="string">'img'</span>)</span><br><span class="line">    img.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      resolve(img)</span><br><span class="line">    &#125;</span><br><span class="line">    img.onerror = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      reject(<span class="string">'图片加载失败'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    img.src = src</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="keyword">return</span> promise</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> src = <span class="string">'//img.mukewang.com/5bc45ce20001976409360316.jpg'</span></span><br><span class="line"><span class="keyword">let</span> result = loadImg(src)</span><br><span class="line"></span><br><span class="line">result.then(</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">img</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'ok1'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fail1'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">result.then(</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">img</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'ok2'</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fail2'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="5-设计原则"><a href="#5-设计原则" class="headerlink" title="5. 设计原则"></a>5. 设计原则</h2><ul>
+<li>将状态对象和主题对象分离，状态的变化逻辑单独处理</li>
+<li>符合开放封闭原则</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-05T14:10:47.646Z" itemprop="dateUpdated">2018-11-05 22:10:47</time>
+</span><br>
+
+
+        
+        当前路径：<a href="/2018/11/05/状态模式/" target="_blank" rel="external">http://www.cipuzp.com/2018/11/05/状态模式/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://www.cipuzp.com">
+            <img src="/img/avatar.jpg" alt="朱攀">
+            朱攀
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/05/状态模式/&title=《状态模式》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/05/状态模式/&title=《状态模式》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/05/状态模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《状态模式》 — 个人博客&url=http://www.cipuzp.com/2018/11/05/状态模式/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/05/状态模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/05/迭代器模式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">工厂模式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>
+                <a href="/atom.xml" target="_blank" class="rss" title="rss">
+                    <i class="icon icon-lg icon-rss"></i>
+                </a>
+            </span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                朱攀 &copy;
+                
+                2015 -
+                
+                2018</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/05/状态模式/&title=《状态模式》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/05/状态模式/&title=《状态模式》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/05/状态模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《状态模式》 — 个人博客&url=http://www.cipuzp.com/2018/11/05/状态模式/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/05/状态模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aQW6EMAwFUO5/aXqA0WS+bahEeFlVdCA8FpYd+zjidX6sz+vrX357WnL9soWBgfFYxrlcycbVXT7vTfb98YEwMDBewPi28bffrF8ouav6tB/PwcDAwAgYVyWCGBgYGHNG8tJrfFIGY2BgYPSK2GTjvIithvLLanEMDIwHMvLDsv//+5b+BgYGxqMYZ3Elh/iTlkNvYWBg7M3oJXZ5EZsPbVTbohgYGO9hTADV4bBq+VoofTEwMLZmVFO9XiDOC9f8yK8QyzEwMLZgVJuL+WH95Ci/2QDAwMDYlBElXkGrIPkQ+b35AAcGBsYbGNUtq43GeSl7zOM0BgbGwxmTQ/98dCx50dFYBgYGxqaM9ZFWNV2bhOZkr2hmBAMDYztGbwxifoifj5Q1K3IMDIyNGPnIaT4SUR1vraaMGBgYb2P0ystek7KaPk7SVgwMjP0Y1fHT6vUc30sxMTAw9mbkQTAPiBNer/2AgYGxN6NXmlbbA71Q3kxDMTAwNmVUC9deA3Le+PyROGJgYLyAsQ6p+X8nIfjGMQsMDIztGKPeQjHd7AX3oyfGwMB4IOMsrjUjf0KSPhaoGBgYWzPy1TsI6zUp80ZFGYaBgfFYRjU1zL/NfQEXAwPjnYzegf4djc889GNgYGBMGFeF3fKhGwYGBkZxJCIPuNUge1nAxcDAeBSj1wxIDuZ64xTN1BADA2NTRnXEoRpSJ63T5ANhYGBszfgDdBmyUK+nHOIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '朱攀个人博客！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
