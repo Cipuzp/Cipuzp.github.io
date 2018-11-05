@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>迭代器模式 | 个人博客 | 学习管理的前端工程师</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="迭代器模式1. 介绍 顺序访问一个集合 使用者无需知道集合的北部结构（封装）  2. UML 演示点击查看 3. 代码演示12345678910111213141516171819202122232425262728293031323334353637class Iterator &amp;#123;  constructor(container) &amp;#123;    this.list = contai">
+<meta name="keywords" content="技术、阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="迭代器模式">
+<meta property="og:url" content="http://www.cipuzp.com/2018/11/05/迭代器模式js/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="迭代器模式1. 介绍 顺序访问一个集合 使用者无需知道集合的北部结构（封装）  2. UML 演示点击查看 3. 代码演示12345678910111213141516171819202122232425262728293031323334353637class Iterator &amp;#123;  constructor(container) &amp;#123;    this.list = contai">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-05T14:18:18.385Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="迭代器模式">
+<meta name="twitter:description" content="迭代器模式1. 介绍 顺序访问一个集合 使用者无需知道集合的北部结构（封装）  2. UML 演示点击查看 3. 代码演示12345678910111213141516171819202122232425262728293031323334353637class Iterator &amp;#123;  constructor(container) &amp;#123;    this.list = contai">
+    
+        <link rel="alternate" type="application/atom+xml" title="个人博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">朱攀</h5>
+          <a href="mailto:1556567686@qq.com" title="1556567686@qq.com" class="mail">1556567686@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                友情链接
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/vue-travel" target="_blank" >
+                <i class="icon icon-lg icon-vue-travel"></i>
+                Vue仿去哪儿项目
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">迭代器模式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">迭代器模式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-05T12:53:15.561Z" itemprop="datePublished" class="page-time">
+  2018-11-05
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#迭代器模式"><span class="post-toc-number">1.</span> <span class="post-toc-text">迭代器模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-介绍"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-UML-演示"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. UML 演示</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-代码演示"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. 代码演示</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-场景"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4. 场景</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-1-jQuery-each"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">4.1 jQuery each</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-ES6-Iterator"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">4.2 ES6 Iterator</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-3-Generator"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">4.3 Generator</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-设计原则"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">5. 设计原则</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-迭代器模式js"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">迭代器模式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-05 20:53:15" datetime="2018-11-05T12:53:15.561Z"  itemprop="datePublished">2018-11-05</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="迭代器模式"><a href="#迭代器模式" class="headerlink" title="迭代器模式"></a>迭代器模式</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><ul>
+<li>顺序访问一个集合</li>
+<li>使用者无需知道集合的北部结构（封装）</li>
+</ul>
+<h2 id="2-UML-演示"><a href="#2-UML-演示" class="headerlink" title="2. UML 演示"></a>2. UML 演示</h2><p><a href="https://img-blog.csdnimg.cn/20181105205259174.jpg" target="_blank" rel="noopener">点击查看</a></p>
+<h2 id="3-代码演示"><a href="#3-代码演示" class="headerlink" title="3. 代码演示"></a>3. 代码演示</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Iterator</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(container) &#123;</span><br><span class="line">    <span class="keyword">this</span>.list = container.list</span><br><span class="line">    <span class="keyword">this</span>.index = <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  next() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.hasNext()) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.list[<span class="keyword">this</span>.index++]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  hasNext() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.index &gt;= <span class="keyword">this</span>.list.length) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Container</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(list) &#123;</span><br><span class="line">    <span class="keyword">this</span>.list = list</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//成圣遍历器</span></span><br><span class="line">  getIterator() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Iterator(<span class="keyword">this</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line"><span class="keyword">let</span> container = <span class="keyword">new</span> Container(arr)</span><br><span class="line"><span class="keyword">let</span> iterator = container.getIterator()</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(iterator.next())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-场景"><a href="#4-场景" class="headerlink" title="4. 场景"></a>4. 场景</h2><h3 id="4-1-jQuery-each"><a href="#4-1-jQuery-each" class="headerlink" title="4.1 jQuery each"></a>4.1 jQuery each</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个方法遍历三种对象</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">each</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> $data = $(data) <span class="comment">//生成迭代器</span></span><br><span class="line">  $data.each(<span class="function"><span class="keyword">function</span>(<span class="params">key, p</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(key, p)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line">each(arr)</span><br><span class="line">each(nodeList)</span><br><span class="line">each($p)</span><br></pre></td></tr></table></figure>
+<h3 id="4-2-ES6-Iterator"><a href="#4-2-ES6-Iterator" class="headerlink" title="4.2 ES6 Iterator"></a>4.2 ES6 Iterator</h3><ul>
+<li><code>array</code>、<code>map</code> 等数据类型都有<code>[Symbol.iterator]</code>属性</li>
+<li>属性值是函数，执行函数返回一个迭代器</li>
+<li>这个迭代器就有 <code>next</code> 方法可顺序迭代子元素</li>
+<li><p>可运行 <code>Array.prototype[Symbol.iterator]</code>来测试</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">each</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//生成遍历器</span></span><br><span class="line">  <span class="keyword">let</span> iterator = data[<span class="built_in">Symbol</span>.iterator]()</span><br><span class="line">  <span class="comment">//有数据时返回&#123;value:1,done:false&#125;</span></span><br><span class="line">  <span class="comment">//console.log(iterator.next())</span></span><br><span class="line">  <span class="comment">//console.log(iterator.next())</span></span><br><span class="line">  <span class="comment">//console.log(iterator.next())</span></span><br><span class="line">  <span class="comment">//console.log(iterator.next())</span></span><br><span class="line">  <span class="comment">//没有数据时返回&#123;value: undefined, done: true&#125;</span></span><br><span class="line">  <span class="comment">//console.log(iterator.next())</span></span><br><span class="line">  <span class="comment">//console.log(iterator.next())</span></span><br><span class="line">  <span class="comment">//console.log(iterator.next())</span></span><br><span class="line">  <span class="keyword">let</span> item = &#123;</span><br><span class="line">    done: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> (!item.done) &#123;</span><br><span class="line">    iterator.next()</span><br><span class="line">    <span class="keyword">if</span> (!item.done) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(item.value)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"><span class="keyword">let</span> nodeList = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)</span><br><span class="line"><span class="keyword">let</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>()</span><br><span class="line">m.set(<span class="string">'a'</span>, <span class="number">100</span>)</span><br><span class="line">m.set(<span class="string">'b'</span>, <span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">each</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> data) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="4-3-Generator"><a href="#4-3-Generator" class="headerlink" title="4.3 Generator"></a>4.3 Generator</h2><ul>
+<li>只要返回的数据符合 Iterator 接口的要求即可使用 Iterator 语法</li>
+</ul>
+<h2 id="5-设计原则"><a href="#5-设计原则" class="headerlink" title="5. 设计原则"></a>5. 设计原则</h2><ul>
+<li>迭代器对象和目标对象分离</li>
+<li>迭代器将使用者与目标对象隔离开</li>
+<li>符合开放封闭原则</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-05T14:18:18.385Z" itemprop="dateUpdated">2018-11-05 22:18:18</time>
+</span><br>
+
+
+        
+        当前路径：<a href="/2018/11/05/迭代器模式js/" target="_blank" rel="external">http://www.cipuzp.com/2018/11/05/迭代器模式js/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://www.cipuzp.com">
+            <img src="/img/avatar.jpg" alt="朱攀">
+            朱攀
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/05/迭代器模式js/&title=《迭代器模式》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/05/迭代器模式js/&title=《迭代器模式》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/05/迭代器模式js/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《迭代器模式》 — 个人博客&url=http://www.cipuzp.com/2018/11/05/迭代器模式js/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/05/迭代器模式js/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/11/05/状态模式/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">状态模式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/05/nwData/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">知识超级充电站</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>
+                <a href="/atom.xml" target="_blank" class="rss" title="rss">
+                    <i class="icon icon-lg icon-rss"></i>
+                </a>
+            </span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                朱攀 &copy;
+                
+                2015 -
+                
+                2018</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/05/迭代器模式js/&title=《迭代器模式》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/05/迭代器模式js/&title=《迭代器模式》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/05/迭代器模式js/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《迭代器模式》 — 个人博客&url=http://www.cipuzp.com/2018/11/05/迭代器模式js/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/05/迭代器模式js/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3ay47CMAwFUP7/p5ktEjPtvTGM1PRkhXi0Pl0Yx87jEa/ny3p95/3Tv9b71ZK7fHhhYGBclpHcPg/uOOjjX+X3/YWKgYFxA8ZfGSy5/STE/PVJzBgYGBhBMXecLvMSEAMDA2POyDelbeGIgYGBcczIy7i1xtnaQ/nKXhwDA+OCjLzr/v+vvzLfwMDAuBTjWa7jZJoMOPPUXESFgYGxNWO+BV37Zt5uK66AgYGxKSMv1Notbr4NTlpvJ006DAyMGzPygcE8EU9afhgYGHdgrG0g28bcpAR8tE8IAwNjI0Y7nkzYk4c1iRYDA2NXRhJQHlxSOLYpOyouMTAwtmbkCbdtxs1Lvbyph4GBcU9GfpDiU4PPfNNbHLbAwMDYglGks8PLfT2ZHj8aDAyMrRlrG9o8QR+XjG3ode8QAwNjI8Zao60t6T41hDj598DAwNiUkSffb4wHJoFiYGDcjdEmzeSwaVJcJo+gSN8YGBhbM+aJcnIsrC0iR/8YGBgYF2Tkhyra0nBS/NVRYWBg3IwxGVKuFX/5uHRxsoGBgbEFIw8xT6z599sjGifzDQwMjI0Yz3K1gLXGWZ3uMTAwtmasJbt2eNkWefn2tYZhYGBclpGPJIshYpkiP3AUAwMD4waMNvG1SXPx2ERQzmJgYGC0YbV16NrQtMjuGBgYt2e044TJWPRkXomBgXEDRrKJLY4+LG1HJ9fEwMDYm9G2wyawtQbfJFljYGBcnPEDTglVg0KOXwUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '朱攀个人博客！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
