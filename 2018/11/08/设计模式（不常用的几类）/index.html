@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>设计模式（不常用的几类） | 个人博客 | 学习管理的前端工程师</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="设计模式1. 创建型1. 原型模式 概念 clone 自己，生成一个对象   应用（Object.create） 123456789//基于原型创建一个对象var prototype = &amp;#123;  getName: function() &amp;#123;    return this.first + &apos; &apos; + this.last  &amp;#125;,  say: function() &amp;#123;">
+<meta name="keywords" content="技术、阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式（不常用的几类）">
+<meta property="og:url" content="http://www.cipuzp.com/2018/11/08/设计模式（不常用的几类）/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="设计模式1. 创建型1. 原型模式 概念 clone 自己，生成一个对象   应用（Object.create） 123456789//基于原型创建一个对象var prototype = &amp;#123;  getName: function() &amp;#123;    return this.first + &apos; &apos; + this.last  &amp;#125;,  say: function() &amp;#123;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-08T09:06:04.844Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式（不常用的几类）">
+<meta name="twitter:description" content="设计模式1. 创建型1. 原型模式 概念 clone 自己，生成一个对象   应用（Object.create） 123456789//基于原型创建一个对象var prototype = &amp;#123;  getName: function() &amp;#123;    return this.first + &apos; &apos; + this.last  &amp;#125;,  say: function() &amp;#123;">
+    
+        <link rel="alternate" type="application/atom+xml" title="个人博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">朱攀</h5>
+          <a href="mailto:1556567686@qq.com" title="1556567686@qq.com" class="mail">1556567686@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                友情链接
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/vue-travel" target="_blank" >
+                <i class="icon icon-lg icon-vue-travel"></i>
+                Vue仿去哪儿项目
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">设计模式（不常用的几类）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">设计模式（不常用的几类）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-08T09:05:39.788Z" itemprop="datePublished" class="page-time">
+  2018-11-08
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#设计模式"><span class="post-toc-number">1.</span> <span class="post-toc-text">设计模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-创建型"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 创建型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-原型模式"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">1. 原型模式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-结构型"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. 结构型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-桥接模式"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">2.1 桥接模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-组合模式"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">2.2 组合模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-享元模式"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">2.3 享元模式</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-行为型"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. 行为型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-策略模式"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">3.1 策略模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-模板方法模式"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">3.2 模板方法模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-职责链模式"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">3.3 职责链模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-4-命令模式"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">3.4 命令模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-5-备忘录模式"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">3.5 备忘录模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-6-中介者模式"><span class="post-toc-number">1.3.6.</span> <span class="post-toc-text">3.6 中介者模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-7-访问者模式"><span class="post-toc-number">1.3.7.</span> <span class="post-toc-text">3.7 访问者模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-8-解释器模式"><span class="post-toc-number">1.3.8.</span> <span class="post-toc-text">3.8 解释器模式</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-设计模式（不常用的几类）"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">设计模式（不常用的几类）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-08 17:05:39" datetime="2018-11-08T09:05:39.788Z"  itemprop="datePublished">2018-11-08</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h2 id="1-创建型"><a href="#1-创建型" class="headerlink" title="1. 创建型"></a>1. 创建型</h2><h3 id="1-原型模式"><a href="#1-原型模式" class="headerlink" title="1. 原型模式"></a>1. 原型模式</h3><ol>
+<li>概念<ul>
+<li>clone 自己，生成一个对象</li>
+</ul>
+</li>
+<li><p>应用（Object.create）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基于原型创建一个对象</span></span><br><span class="line"><span class="keyword">var</span> prototype = &#123;</span><br><span class="line">  getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.first + <span class="string">' '</span> + <span class="keyword">this</span>.last</span><br><span class="line">  &#125;,</span><br><span class="line">  say: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hello'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//基于原型创建</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="built_in">Object</span>.create(prototype)</span><br><span class="line">x.first = <span class="string">'A'</span></span><br><span class="line">x.last = <span class="string">'B'</span></span><br><span class="line"><span class="built_in">console</span>.log(y.getName())</span><br><span class="line">y.say()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>JS 中的原型 prototype<ul>
+<li>可以理解为 ES6 class 的一种底层原理</li>
+<li>而 class 是实现面向对象的基础，并不是服务于某个模式</li>
+<li>ES6 全面普及后，可能会忽略 prototype</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-结构型"><a href="#2-结构型" class="headerlink" title="2. 结构型"></a>2. 结构型</h2><h3 id="2-1-桥接模式"><a href="#2-1-桥接模式" class="headerlink" title="2.1 桥接模式"></a>2.1 桥接模式</h3><ol>
+<li><p>概念</p>
+<ul>
+<li>用于把抽象化与实现化解耦，是的二者可以独立变化</li>
+</ul>
+</li>
+<li><p>演示</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColorShape</span> </span>&#123;</span><br><span class="line">  yellowCircle() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'yellow circle'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  redCircle() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'red circle'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  yellowTriangle() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'yellow triangle'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  redTriangle() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'red triangle'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> cs = <span class="keyword">new</span> ColorShape()</span><br><span class="line">cs.redCircle()</span><br><span class="line">cs.redTriangle()</span><br><span class="line">cs.yellowCircle()</span><br><span class="line">cs.yellowTriangle()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设计原则</p>
+<ul>
+<li>抽象和实现分离，解耦</li>
+<li>符合开放分离原则</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-2-组合模式"><a href="#2-2-组合模式" class="headerlink" title="2.2 组合模式"></a>2.2 组合模式</h3><ol>
+<li>概念<br>生成树形结构，“整体-部分关系”。让整体和部分都具有一致的操作方式</li>
+<li><p>代码演示</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//虚拟DOM（vNode）</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>123<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>456<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  tag:<span class="string">'div'</span>,</span><br><span class="line">  attr:&#123;</span><br><span class="line">    id:<span class="string">'div1'</span>,</span><br><span class="line">    className:<span class="string">'container'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  children:[</span><br><span class="line">    &#123;</span><br><span class="line">      tag:<span class="string">'p'</span>,</span><br><span class="line">      attr:&#123;&#125;,</span><br><span class="line">      children:[<span class="string">'123'</span>]</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">      tag:<span class="string">'p'</span>,</span><br><span class="line">      attr:&#123;&#125;,</span><br><span class="line">      children:[<span class="string">'456'</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设计原则</p>
+<ul>
+<li>将整体和单个节点的操作抽象出来，符合开放封闭原则</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-3-享元模式"><a href="#2-3-享元模式" class="headerlink" title="2.3 享元模式"></a>2.3 享元模式</h3><ol>
+<li><p>概念</p>
+<ul>
+<li>共享内存（主要考虑内存，而非效率）</li>
+<li>相同的数据，共享使用</li>
+</ul>
+</li>
+<li><p>代码演示</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a1<span class="tag">&lt;<span class="name">a</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a2<span class="tag">&lt;<span class="name">a</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a3<span class="tag">&lt;<span class="name">a</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a4<span class="tag">&lt;<span class="name">a</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>a5<span class="tag">&lt;<span class="name">a</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">var</span> div1 = <span class="built_in">document</span>.getElementById(<span class="string">'div1'</span>)</span></span><br><span class="line"><span class="javascript">div1.addEventListener(<span class="string">'click'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> target = e.target</span></span><br><span class="line"><span class="javascript">  <span class="keyword">if</span>(target.nodeName === <span class="string">'A'</span>)&#123;</span></span><br><span class="line"><span class="undefined">    alert(alert.innerHTML)</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">&#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设计原则</p>
+</li>
+</ol>
+<ul>
+<li>将相同的部分抽象出来，符合开放封闭原则</li>
+</ul>
+<h2 id="3-行为型"><a href="#3-行为型" class="headerlink" title="3. 行为型"></a>3. 行为型</h2><h3 id="3-1-策略模式"><a href="#3-1-策略模式" class="headerlink" title="3.1 策略模式"></a>3.1 策略模式</h3><ol>
+<li>概念</li>
+</ol>
+<ul>
+<li>不同策略分开处理，避免出现大量 if…else</li>
+</ul>
+<ol start="2">
+<li><p>代码验证</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(type) &#123;</span><br><span class="line">    <span class="keyword">this</span>.type = type</span><br><span class="line">  &#125;</span><br><span class="line">  buy() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.type === <span class="string">'ordinary'</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'普通用户购买'</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.type === <span class="string">'member'</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'会员用户购买'</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.type === <span class="string">'vip'</span>) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'VIP用户购买'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">var</span> u1 = <span class="keyword">new</span> User(<span class="string">'ordinary'</span>)</span><br><span class="line">u1.buy()</span><br><span class="line"><span class="keyword">var</span> u2 = <span class="keyword">new</span> User(<span class="string">'member'</span>)</span><br><span class="line">u2.buy()</span><br><span class="line"><span class="keyword">var</span> u3 = <span class="keyword">new</span> User(<span class="string">'vip'</span>)</span><br><span class="line">u3.buy()</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//改进</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OrdinaryUser</span> </span>&#123;</span><br><span class="line">  buy() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'普通用户购买'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MemberUser</span> </span>&#123;</span><br><span class="line">  buy() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'会员用户购买'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VipUser</span> </span>&#123;</span><br><span class="line">  buy() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'VIP 用户购买'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">var</span> u1 = <span class="keyword">new</span> OrdinaryUser()</span><br><span class="line">u1.buy()</span><br><span class="line"><span class="keyword">var</span> u2 = <span class="keyword">new</span> MemberUser()</span><br><span class="line">u2.buy()</span><br><span class="line"><span class="keyword">var</span> u3 = <span class="keyword">new</span> VipUser()</span><br><span class="line">u3.buy()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设计原则</p>
+</li>
+</ol>
+<ul>
+<li>不同策略分开处理，符合开放封闭原则</li>
+</ul>
+<h3 id="3-2-模板方法模式"><a href="#3-2-模板方法模式" class="headerlink" title="3.2 模板方法模式"></a>3.2 模板方法模式</h3><ol>
+<li>概念</li>
+<li><p>代码验证</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Action</span> </span>&#123;</span><br><span class="line">  handle() &#123;</span><br><span class="line">    handle1()</span><br><span class="line">    handle2()</span><br><span class="line">    handle3()</span><br><span class="line">  &#125;</span><br><span class="line">  handle1() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'1'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  handle21() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'2'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  handle3() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'3'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设计原则</p>
+</li>
+</ol>
+<h3 id="3-3-职责链模式"><a href="#3-3-职责链模式" class="headerlink" title="3.3 职责链模式"></a>3.3 职责链模式</h3><ol>
+<li>概念</li>
+</ol>
+<ul>
+<li>异步操作可能分为多个职责角色来完成</li>
+<li>吧这些角色都分开，然后用一个链串起来</li>
+<li>将发起者和各个处理者进行隔离</li>
+</ul>
+<ol start="2">
+<li>JS 中的链式操作</li>
+</ol>
+<ul>
+<li>jQuery 的链式操作</li>
+<li>Promise.then 的链式操作</li>
+</ul>
+<ol start="3">
+<li><p>代码验证</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//请假审批，需要组长、经理、总监分布审批</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Action</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.nextActoin = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  setNextAction(action) &#123;</span><br><span class="line">    <span class="keyword">this</span>.nextAction = action</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  handle() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>审批`</span>)</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.nextAction != <span class="literal">null</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.nextAction.handle()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">let</span> a1 = <span class="keyword">new</span> Action(<span class="string">'组长'</span>)</span><br><span class="line"><span class="keyword">let</span> a2 = <span class="keyword">new</span> Action(<span class="string">'经理'</span>)</span><br><span class="line"><span class="keyword">let</span> a3 = <span class="keyword">new</span> Action(<span class="string">'总监'</span>)</span><br><span class="line">a1.setNextAction(a2)</span><br><span class="line">a2.setNextAction(a3)</span><br><span class="line">a1.handle()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设计原则</p>
+</li>
+</ol>
+<ul>
+<li>发起者于各个处理者进行隔离</li>
+<li>符合开放封闭原则</li>
+</ul>
+<h3 id="3-4-命令模式"><a href="#3-4-命令模式" class="headerlink" title="3.4 命令模式"></a>3.4 命令模式</h3><ol>
+<li>概念</li>
+</ol>
+<ul>
+<li>执行命令时，发布者和执行者分开</li>
+</ul>
+<ol start="2">
+<li><p>代码验证</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Receiver</span> </span>&#123;</span><br><span class="line">  exec() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'执行'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Command</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(receiver) &#123;</span><br><span class="line">    <span class="keyword">this</span>.receiver = receiver</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  cmd() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'触发命令'</span>)</span><br><span class="line">    <span class="keyword">this</span>.receiver.exec()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Invoker</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(command) &#123;</span><br><span class="line">    <span class="keyword">this</span>.command = command</span><br><span class="line">  &#125;</span><br><span class="line">  invoke() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'开始'</span>)</span><br><span class="line">    <span class="keyword">this</span>.command.cmd()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//士兵</span></span><br><span class="line"><span class="keyword">let</span> soldier = <span class="keyword">new</span> Receiver()</span><br><span class="line"><span class="comment">//小号手</span></span><br><span class="line"><span class="keyword">let</span> trumpeter = <span class="keyword">new</span> Command(soldier)</span><br><span class="line"><span class="comment">//将军</span></span><br><span class="line"><span class="keyword">let</span> general = <span class="keyword">new</span> Invoker(trumpeter)</span><br><span class="line">general.invoke()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JS 中的应用</p>
+</li>
+</ol>
+<ul>
+<li>网页富文本编辑器操作，浏览器封装命令对象</li>
+</ul>
+<ol start="4">
+<li>设计原则</li>
+</ol>
+<ul>
+<li>命令者与执行对象分开，解耦</li>
+<li>符合开放封闭原则</li>
+</ul>
+<h3 id="3-5-备忘录模式"><a href="#3-5-备忘录模式" class="headerlink" title="3.5 备忘录模式"></a>3.5 备忘录模式</h3><ol>
+<li>概念</li>
+</ol>
+<ul>
+<li>随时记录一个对象的状态变化</li>
+<li>随时可以恢复之间的某个状态（如撤销）</li>
+</ul>
+<ol start="2">
+<li><p>代码验证</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//状态备忘</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Memento</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(content) &#123;</span><br><span class="line">    <span class="keyword">this</span>.content = content</span><br><span class="line">  &#125;</span><br><span class="line">  getContent() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.content</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//备忘列表</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CareTaker</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.list = []</span><br><span class="line">  &#125;</span><br><span class="line">  add(memento) &#123;</span><br><span class="line">    <span class="keyword">this</span>.list.push(memento)</span><br><span class="line">  &#125;</span><br><span class="line">  get(index) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.list[index]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//编辑器</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Editor</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.content = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  setContent(content) &#123;</span><br><span class="line">    <span class="keyword">this</span>.content = content</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getContent() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.content</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  saveContentToMemento() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Memento(<span class="keyword">this</span>.content)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  getContentFromMemento(memento) &#123;</span><br><span class="line">    <span class="keyword">this</span>.content = memento.getContent()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> editor = <span class="keyword">new</span> Editor()</span><br><span class="line"><span class="keyword">let</span> careTaker = <span class="keyword">new</span> CareTaker()</span><br><span class="line">editor.setContent(<span class="string">'111'</span>)</span><br><span class="line">editor.setContent(<span class="string">'222'</span>)</span><br><span class="line">careTaker.add(editor.saveContentToMemento()) <span class="comment">//储存</span></span><br><span class="line">editor.setContent(<span class="string">'333'</span>)</span><br><span class="line">careTaker.add(editor.saveContentToMemento()) <span class="comment">//储存</span></span><br><span class="line">editor.setContent(<span class="string">'444'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(editor.getContent())</span><br><span class="line">editor.getContentFromMemento(careTaker.get(<span class="number">1</span>)) <span class="comment">//撤销</span></span><br><span class="line"><span class="built_in">console</span>.log(editor.getContent())</span><br><span class="line">editor.getContentFromMemento(careTaker.get(<span class="number">0</span>)) <span class="comment">//撤销</span></span><br><span class="line"><span class="built_in">console</span>.log(editor.getContent())</span><br><span class="line"><span class="built_in">console</span>.log(careTaker.get(<span class="number">1</span>))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设计原则</p>
+</li>
+</ol>
+<ul>
+<li>状态对象与使用者分开，解耦</li>
+<li>符合开放封闭原则</li>
+</ul>
+<h3 id="3-6-中介者模式"><a href="#3-6-中介者模式" class="headerlink" title="3.6 中介者模式"></a>3.6 中介者模式</h3><ol>
+<li>概念</li>
+</ol>
+<ul>
+<li>多个对象能够通过一个对象进行访问</li>
+</ul>
+<ol start="2">
+<li><p>代码验证</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Mediator</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(a, b) &#123;</span><br><span class="line">    <span class="keyword">this</span>.a = a</span><br><span class="line">    <span class="keyword">this</span>.b = b</span><br><span class="line">  &#125;</span><br><span class="line">  setA() &#123;</span><br><span class="line">    <span class="keyword">let</span> number = <span class="keyword">this</span>.b.number</span><br><span class="line">    <span class="keyword">this</span>.a.setNumber(number * <span class="number">100</span>)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  setB() &#123;</span><br><span class="line">    <span class="keyword">let</span> number = <span class="keyword">this</span>.a.number</span><br><span class="line">    <span class="keyword">this</span>.b.setNumber(number / <span class="number">100</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.number = <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">  setNumber(num, m) &#123;</span><br><span class="line">    <span class="keyword">this</span>.number = num</span><br><span class="line">    <span class="keyword">if</span> (m) &#123;</span><br><span class="line">      <span class="comment">//如果有中介者</span></span><br><span class="line">      m.setB()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.number = <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">  setNumber(num, m) &#123;</span><br><span class="line">    <span class="keyword">this</span>.number = num</span><br><span class="line">    <span class="keyword">if</span> (m) &#123;</span><br><span class="line">      m.setA()</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//测试</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="keyword">new</span> A()</span><br><span class="line"><span class="keyword">let</span> b = <span class="keyword">new</span> B()</span><br><span class="line"><span class="keyword">let</span> m = <span class="keyword">new</span> Mediator(a, b)</span><br><span class="line">a.setNumber(<span class="number">100</span>, m)</span><br><span class="line"><span class="built_in">console</span>.log(a.number, b.number)</span><br><span class="line">b.setNumber(<span class="number">100</span>, m)</span><br><span class="line"><span class="built_in">console</span>.log(a.number, b.number)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设计原则</p>
+</li>
+</ol>
+<ul>
+<li>符合开放封闭原则</li>
+</ul>
+<h3 id="3-7-访问者模式"><a href="#3-7-访问者模式" class="headerlink" title="3.7 访问者模式"></a>3.7 访问者模式</h3><ol>
+<li>概念</li>
+</ol>
+<ul>
+<li>将数据操作和数据结构分离</li>
+</ul>
+<h3 id="3-8-解释器模式"><a href="#3-8-解释器模式" class="headerlink" title="3.8 解释器模式"></a>3.8 解释器模式</h3><ol>
+<li>概念</li>
+</ol>
+<ul>
+<li>描述语言语法如何定义，如何解释和编译</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-08T09:06:04.844Z" itemprop="dateUpdated">2018-11-08 17:06:04</time>
+</span><br>
+
+
+        
+        当前路径：<a href="/2018/11/08/设计模式（不常用的几类）/" target="_blank" rel="external">http://www.cipuzp.com/2018/11/08/设计模式（不常用的几类）/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://www.cipuzp.com">
+            <img src="/img/avatar.jpg" alt="朱攀">
+            朱攀
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/08/设计模式（不常用的几类）/&title=《设计模式（不常用的几类）》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/08/设计模式（不常用的几类）/&title=《设计模式（不常用的几类）》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/08/设计模式（不常用的几类）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《设计模式（不常用的几类）》 — 个人博客&url=http://www.cipuzp.com/2018/11/08/设计模式（不常用的几类）/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/08/设计模式（不常用的几类）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/05/状态模式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">状态模式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>
+                <a href="/atom.xml" target="_blank" class="rss" title="rss">
+                    <i class="icon icon-lg icon-rss"></i>
+                </a>
+            </span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                朱攀 &copy;
+                
+                2015 -
+                
+                2018</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/08/设计模式（不常用的几类）/&title=《设计模式（不常用的几类）》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/08/设计模式（不常用的几类）/&title=《设计模式（不常用的几类）》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/08/设计模式（不常用的几类）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《设计模式（不常用的几类）》 — 个人博客&url=http://www.cipuzp.com/2018/11/08/设计模式（不常用的几类）/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/08/设计模式（不常用的几类）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3aQW7DMAwEwP7/0ynQU4Eizq4o2T2MTwHiWBofRIbk11d8vX6u5J7fd77+XO2v2j0sXnh4eHhLW393XS/5d+FXcLXPbFfBw8PDu4eXbPr68/Ury8/t5Nv8peDh4eE9y7tevs1sk0R57bXi4eHh/TdeXiZIyhOTe/Dw8PCe5eWPS75dO/TbVTbXWvDw8PBiXtsA+w+fD/b38PDw8AZd9bZ9NU+72+d/2CceHh7eAd6uokObBE+CU5524+Hh4d3DWzus17aSrJ6/3OjfAB4eHt4mXltUXSvOXv82IeUlXTw8PLzTvDxRXisc5AFg3tb6UIzAw8PDG/OS5dtv9x7ukxeKh4eHdw8vH6ialG5HuX9egMbDw8N7iHd/oysPMNelDTw8PLx7ePMC61qKPM+Bo8CAh4eHt4mXF0/nbf7k+dGhHxSa8fDw8E7w2q3naXQ7jDUpDW+YLMPDw8Mrecm22jS3HeHKBxTaYIOHh4d3jtcWCJLQkie+7bhVUUTGw8PD28qbpMhrAwFJCSNf/cP9eHh4eId5yY/zg7stLrQhqv6vgIeHh3cLb63IuxYG2pJulHDj4eHhHeCtHce7Dv2kiZUPNLzdAx4eHt4x3tpw1aT9nw9vtc2zDVEODw8P7w2vbUfND+vJSEFdZ8DDw8M7wJuMXk0aV+0411rhGA8PD+8EL0mU20LtLmr7WvHw8PDu4SUl1LztlA9jta81v/Dw8PBO89aGqyZNrEmTLAk5eHh4eKd583iSFybmpYckQV8MKnh4eHjlumvBYNK+Wkugk3Xr6IeHh4c34E2KERPMqBTbdvbw8PDwHuK1283LDe2QQbRPPDw8vEd5ycG9dvS3L6gID3h4eHjHeJOm11op4URza1sZFw8PD2880bQWDNrmWZ52t6k8Hh4e3ibeN41v2k9qsTnKAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '朱攀个人博客！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
