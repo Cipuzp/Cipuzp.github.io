@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>&lt;!DOCTYPE&gt; 声明 | 个人博客 | 学习管理的前端工程师</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="1.4 HTML &amp;lt;!DOCTYPE&amp;gt; 声明 注释：&amp;lt;!DOCTYPE&amp;gt; 标签没有结束标签。提示：&amp;lt;!DOCTYPE&amp;gt; 声明不区分大小写。  1.4.1 标签定义及使用说明 &amp;lt;!DOCTYPE&amp;gt; 声明位于文档中的最前面的位置，处于 &amp;lt;html&amp;gt; 标签之前。 &amp;lt;!DOCTYPE&amp;gt; 声明不是一个 HTML 标签；它是用来告知 We">
+<meta name="keywords" content="技术、阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&lt;!DOCTYPE&gt; 声明">
+<meta property="og:url" content="http://www.cipuzp.com/2018/11/11/HTML _!DOCTYPE_/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="1.4 HTML &amp;lt;!DOCTYPE&amp;gt; 声明 注释：&amp;lt;!DOCTYPE&amp;gt; 标签没有结束标签。提示：&amp;lt;!DOCTYPE&amp;gt; 声明不区分大小写。  1.4.1 标签定义及使用说明 &amp;lt;!DOCTYPE&amp;gt; 声明位于文档中的最前面的位置，处于 &amp;lt;html&amp;gt; 标签之前。 &amp;lt;!DOCTYPE&amp;gt; 声明不是一个 HTML 标签；它是用来告知 We">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-11T06:17:57.778Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&lt;!DOCTYPE&gt; 声明">
+<meta name="twitter:description" content="1.4 HTML &amp;lt;!DOCTYPE&amp;gt; 声明 注释：&amp;lt;!DOCTYPE&amp;gt; 标签没有结束标签。提示：&amp;lt;!DOCTYPE&amp;gt; 声明不区分大小写。  1.4.1 标签定义及使用说明 &amp;lt;!DOCTYPE&amp;gt; 声明位于文档中的最前面的位置，处于 &amp;lt;html&amp;gt; 标签之前。 &amp;lt;!DOCTYPE&amp;gt; 声明不是一个 HTML 标签；它是用来告知 We">
+    
+        <link rel="alternate" type="application/atom+xml" title="个人博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">朱攀</h5>
+          <a href="mailto:1556567686@qq.com" title="1556567686@qq.com" class="mail">1556567686@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                友情链接
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/vue-travel" target="_blank" >
+                <i class="icon icon-lg icon-vue-travel"></i>
+                Vue仿去哪儿项目
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">&lt;!DOCTYPE&gt; 声明</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">&lt;!DOCTYPE&gt; 声明</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-11T06:17:23.230Z" itemprop="datePublished" class="page-time">
+  2018-11-11
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-4-HTML-lt-DOCTYPE-gt-声明"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.4 HTML &lt;!DOCTYPE&gt; 声明</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-4-1-标签定义及使用说明"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1.4.1 标签定义及使用说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-4-2-HTML-4-01-与-HTML5-之间的差异"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.4.2 HTML 4.01 与 HTML5 之间的差异</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-HTML _!DOCTYPE_"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title"><!DOCTYPE> 声明</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-11 14:17:23" datetime="2018-11-11T06:17:23.230Z"  itemprop="datePublished">2018-11-11</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="1-4-HTML-lt-DOCTYPE-gt-声明"><a href="#1-4-HTML-lt-DOCTYPE-gt-声明" class="headerlink" title="1.4 HTML &lt;!DOCTYPE&gt; 声明"></a>1.4 HTML &lt;!DOCTYPE&gt; 声明</h2><blockquote>
+<p>注释：&lt;!DOCTYPE&gt; 标签没有结束标签。<br>提示：&lt;!DOCTYPE&gt; 声明不区分大小写。</p>
+</blockquote>
+<h3 id="1-4-1-标签定义及使用说明"><a href="#1-4-1-标签定义及使用说明" class="headerlink" title="1.4.1 标签定义及使用说明"></a>1.4.1 标签定义及使用说明</h3><ul>
+<li><code>&lt;!DOCTYPE&gt;</code> 声明位于文档中的最前面的位置，处于 <code>&lt;html&gt;</code> 标签之前。</li>
+<li><p><code>&lt;!DOCTYPE&gt;</code> 声明不是一个 <code>HTML</code> 标签；它是用来告知 <code>Web</code> 浏览器页面使用了哪种 `HTML 版本。</p>
+</li>
+<li><p>在 <code>HTML 4.01</code> 中，<code>&lt;!DOCTYPE&gt;</code> 声明需引用 <code>DTD</code> （文档类型声明），因为 <code>HTML 4.01</code> 是基于 <code>SGML</code> （Standard Generalized Markup Language 标准通用标记语言）。<code>DTD</code> 指定了标记语言的规则，确保了浏览器能够正确的渲染内容。</p>
+</li>
+<li><p><code>HTML5</code> 不是基于 <code>SGML</code>，因此不要求引用 <code>DTD</code>。</p>
+</li>
+<li><p>总之给 HTML 文档添加 &lt;!DOCTYPE&gt; 声明，确保浏览器能够预先知道文档类型。</p>
+</li>
+</ul>
+<h3 id="1-4-2-HTML-4-01-与-HTML5-之间的差异"><a href="#1-4-2-HTML-4-01-与-HTML5-之间的差异" class="headerlink" title="1.4.2 HTML 4.01 与 HTML5 之间的差异"></a>1.4.2 HTML 4.01 与 HTML5 之间的差异</h3><ul>
+<li><p>HTML 4.01 规定了三种不同的 &lt;!DOCTYPE&gt; 声明，分别是：Strict、Transitional 和 Frameset。</p>
+<ul>
+<li><p>HTML 4.01 Strict<br>这个 DTD 包含所有 HTML 元素和属性，但不包括表象或过时的元素（如 font ）。框架集是不允许的。</p>
+<p><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot; &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</code></p>
+</li>
+<li><p>HTML 4.01 Transitional<br>这个 DTD 包含所有 HTML 元素和属性，包括表象或过时的元素（如 font ）。框架集是不允许的。</p>
+<p><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</code></p>
+</li>
+<li><p>HTML 4.01 Frameset<br>这个 DTD 与 HTML 4.01 Transitional 相同，但是允许使用框架集内容。</p>
+<p><code>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Frameset//EN&quot; &quot;http://www.w3.org/TR/html4/frameset.dtd&quot;&gt;</code></p>
+</li>
+</ul>
+</li>
+<li><p>HTML5 中仅规定了一种：<br><code>&lt;!DOCTYPE html&gt;</code></p>
+</li>
+<li><p>其他版本常见规定</p>
+<ul>
+<li><p>XHTML 1.0 Strict<br>这个 DTD 包含所有 HTML 元素和属性，但不包括表象或过时的元素（如 font ）。框架集是不允许的。结构必须按标准格式的 XML 进行书写。</p>
+<p><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</code></p>
+</li>
+<li><p>XHTML 1.0 Transitional<br>这个 DTD 包含所有 HTML 元素和属性，包括表象或过时的元素（如 font ）。框架集是不允许的。结构必须按标准格式的 XML 进行书写。</p>
+<p><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</code></p>
+</li>
+<li><p>XHTML 1.0 Frameset<br>这个 DTD 与 XHTML 1.0 Transitional 相同，但是允许使用框架集内容。</p>
+<p><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Frameset//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd&quot;&gt;</code></p>
+</li>
+<li><p>XHTML 1.1<br>这个 DTD 与 XHTML 1.0 Strict 相同，但是允许您添加模块（例如为东亚语言提供 ruby 支持）。</p>
+<p><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd&quot;&gt;</code></p>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-11T06:17:57.778Z" itemprop="dateUpdated">2018-11-11 14:17:57</time>
+</span><br>
+
+
+        
+        当前路径：<a href="/2018/11/11/HTML _!DOCTYPE_/" target="_blank" rel="external">http://www.cipuzp.com/2018/11/11/HTML _!DOCTYPE_/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://www.cipuzp.com">
+            <img src="/img/avatar.jpg" alt="朱攀">
+            朱攀
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/11/HTML _!DOCTYPE_/&title=《<!DOCTYPE> 声明》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/11/HTML _!DOCTYPE_/&title=《<!DOCTYPE> 声明》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/11/HTML _!DOCTYPE_/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《<!DOCTYPE> 声明》 — 个人博客&url=http://www.cipuzp.com/2018/11/11/HTML _!DOCTYPE_/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/11/HTML _!DOCTYPE_/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/11/11/盒模型/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">CSS盒模型</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/11/viewport/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">viewport</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>
+                <a href="/atom.xml" target="_blank" class="rss" title="rss">
+                    <i class="icon icon-lg icon-rss"></i>
+                </a>
+            </span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                朱攀 &copy;
+                
+                2015 -
+                
+                2018</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/11/HTML _!DOCTYPE_/&title=《<!DOCTYPE> 声明》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/11/HTML _!DOCTYPE_/&title=《<!DOCTYPE> 声明》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/11/HTML _!DOCTYPE_/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《<!DOCTYPE> 声明》 — 个人博客&url=http://www.cipuzp.com/2018/11/11/HTML _!DOCTYPE_/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/11/HTML _!DOCTYPE_/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGUlEQVR42u3aS47CMBAFwLn/pZkDMMB77TBS7MrKClFwZdHqj39+4uvx9sqfeX4yuX/ZhYGBcVvGyhbzzT2vkzfnnwYDA+MExqsINlvn+PadL+9jYGBgxOv3d5J/xMDAwFhnvAqmeY2ZVKAYGBgYsyJ2hpyF6S/W4hgYGDdk5F33/19/Zb6BgYFxK8ajvFaK3jwprHeFgYGxNSMPcHnjLEnd8sSx2A8GBsamjGvb+rMW/+yjYGBgnMNoj0TMRgL5hmZNPQwMjL0ZeVN+FjRnQbYN7hgYGOcwVoJs3lBb6e0XxywwMDA2ZbQt/vZ+cqf9FQMD4xzGN2BtqtcmqX8UsRgYGAcwZutZGdwe/KrnGxgYGNsxVjbXDjjz0rRow2FgYBzASELbrKF/beKIgYGBkbfvZ2lcvtE66cTAwNiakTS8cur6oY0LPisGBsbWjNlGk3HjrN2WjBAwMDDOYSRJWJLAJYfG2rcVpTUGBsZhjLYZl2+9Dc3FDjEwMA5gJGnirHGfF6IXDzIxMDA2ZeRNrpVn1g+HvSxiMTAwtmM8yitPE9tCtB1hRic7MDAwtmC0wa497JU31HLeSsjGwMC4L2PW/GqTuVnaV5S4GBgYBzBmjbD872fBtz5sgYGBgVEG05yUh/UPFTkGBgbGKBG86nN8GC1gYGAcwEiK2PVDrvk4sx6RYmBgbM2YtcNWXp0fb03CLgYGxtaMX52TVYMqaNXPAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '朱攀个人博客！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

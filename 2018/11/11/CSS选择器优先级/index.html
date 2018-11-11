@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>CSS选择器优先级 | 个人博客 | 学习管理的前端工程师</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="2.4 选择器优先级如何确定？2.4.1 比较同一级别的个数，数量多的优先级高 important &amp;gt; 内联 &amp;gt; ID &amp;gt; 类 &amp;gt; 标签 | 伪类 | 属性选择 &amp;gt; 伪对象 &amp;gt; 通配符 &amp;gt; 继承   权值的大小跟选择器的类型和数量有关，样式的优先级跟样式的定义顺序有关这也就解释了为什么 11 个标签的定义会比不上 1 个类的定义，1 个类加 11 个标签会">
+<meta name="keywords" content="技术、阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS选择器优先级">
+<meta property="og:url" content="http://www.cipuzp.com/2018/11/11/CSS选择器优先级/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="2.4 选择器优先级如何确定？2.4.1 比较同一级别的个数，数量多的优先级高 important &amp;gt; 内联 &amp;gt; ID &amp;gt; 类 &amp;gt; 标签 | 伪类 | 属性选择 &amp;gt; 伪对象 &amp;gt; 通配符 &amp;gt; 继承   权值的大小跟选择器的类型和数量有关，样式的优先级跟样式的定义顺序有关这也就解释了为什么 11 个标签的定义会比不上 1 个类的定义，1 个类加 11 个标签会">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-11T07:20:00.509Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS选择器优先级">
+<meta name="twitter:description" content="2.4 选择器优先级如何确定？2.4.1 比较同一级别的个数，数量多的优先级高 important &amp;gt; 内联 &amp;gt; ID &amp;gt; 类 &amp;gt; 标签 | 伪类 | 属性选择 &amp;gt; 伪对象 &amp;gt; 通配符 &amp;gt; 继承   权值的大小跟选择器的类型和数量有关，样式的优先级跟样式的定义顺序有关这也就解释了为什么 11 个标签的定义会比不上 1 个类的定义，1 个类加 11 个标签会">
+    
+        <link rel="alternate" type="application/atom+xml" title="个人博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">朱攀</h5>
+          <a href="mailto:1556567686@qq.com" title="1556567686@qq.com" class="mail">1556567686@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                友情链接
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/vue-travel" target="_blank" >
+                <i class="icon icon-lg icon-vue-travel"></i>
+                Vue仿去哪儿项目
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">CSS选择器优先级</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">CSS选择器优先级</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-11T07:19:17.536Z" itemprop="datePublished" class="page-time">
+  2018-11-11
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-选择器优先级如何确定？"><span class="post-toc-number">1.</span> <span class="post-toc-text">2.4 选择器优先级如何确定？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-1-比较同一级别的个数，数量多的优先级高"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">2.4.1 比较同一级别的个数，数量多的优先级高</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-CSS选择器优先级"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">CSS选择器优先级</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-11 15:19:17" datetime="2018-11-11T07:19:17.536Z"  itemprop="datePublished">2018-11-11</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="2-4-选择器优先级如何确定？"><a href="#2-4-选择器优先级如何确定？" class="headerlink" title="2.4 选择器优先级如何确定？"></a>2.4 选择器优先级如何确定？</h2><h3 id="2-4-1-比较同一级别的个数，数量多的优先级高"><a href="#2-4-1-比较同一级别的个数，数量多的优先级高" class="headerlink" title="2.4.1 比较同一级别的个数，数量多的优先级高"></a>2.4.1 比较同一级别的个数，数量多的优先级高</h3><blockquote>
+<p>important &gt; 内联 &gt; ID &gt; 类 &gt; 标签 | 伪类 | 属性选择 &gt; 伪对象 &gt; 通配符 &gt; 继承</p>
+</blockquote>
+<ol>
+<li>权值的大小跟选择器的类型和数量有关，样式的优先级跟样式的定义顺序有关<br>这也就解释了为什么 11 个标签的定义会比不上 1 个类的定义，1 个类加 11 个标签会比不上 2 个类的权重高。</li>
+<li>一个反例：<a href="https://www.zhangxinxu.com/study/201208/256-class-fire-an-id.html" title="点击进入" target="_blank" rel="noopener">256 个 class 类名选择器干掉一个 id 选择器实例页面</a><br>原因：所有的类名(classes)都是以 8 字节字符串存储的，8 字节所能 hold 的最大值就是 255。当同时出现 256 个 class, 势必会越过其边缘，溢出到 id 区域。</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-11T07:20:00.509Z" itemprop="dateUpdated">2018-11-11 15:20:00</time>
+</span><br>
+
+
+        
+        当前路径：<a href="/2018/11/11/CSS选择器优先级/" target="_blank" rel="external">http://www.cipuzp.com/2018/11/11/CSS选择器优先级/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://www.cipuzp.com">
+            <img src="/img/avatar.jpg" alt="朱攀">
+            朱攀
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&title=《CSS选择器优先级》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&title=《CSS选择器优先级》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS选择器优先级》 — 个人博客&url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/11/Normalize vs Reset/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Normalize vs Reset</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>
+                <a href="/atom.xml" target="_blank" class="rss" title="rss">
+                    <i class="icon icon-lg icon-rss"></i>
+                </a>
+            </span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                朱攀 &copy;
+                
+                2015 -
+                
+                2018</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&title=《CSS选择器优先级》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&title=《CSS选择器优先级》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS选择器优先级》 — 个人博客&url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3ayw7CMAxE0fz/TxcJsUGFaGbcguLcrBCFNoeF8SNjyOt4LuWd8/p2t/kdxh0LBgwYyzKO6TpvWnn8+bXyFPe7MGDA2I0xD7Jznh6O9Wip7w0GDBgwKgFU2br+XBgwYMDIAq5SoCol65//N2DAgLEIQ7md8o7etst+vgtqcRgwYCzIcAcDv3x943wDBgwYizAOc+nDS/e52X5e34UBA0ZrhtvEz8pX93WYgMKAAaMpo164utmanoDqrToYMGD0ZlTCq9IgywYMytVwIgoDBoxlGS7Gbdy7xy/0HwIGDBj7MLKmfDbCzAaTdi0OAwaMRgw3mLqfcYOmAvtwTxgwYLRmuKEzGz26QTYsdGHAgNGU4aZiyrAzGy24LTYYMGDsw7jq2MS1g0+3tQcDBowdGFmBOqKVhWx7EgsDBox2DH08UEHWk7/LBpkwYMBYkJEVlmHWKaeh9n5gwIDRlOGGS7cozTaqJ4JvXUMYMGA0ZbiDST1BdBNK/epXHgwYMJoy3Ja9foRCH4W6Cah/GQYMGB0YSlGaNdTcABoORGHAgNGaUS9QdbyeSoYDURgwYDRlHOaqFKVuE80oZWHAgNGakUVot5StHLxQngsDBowdGHcUrpXAqu8BBgwYuzHqo8cwlheC/lDyTRgwYGzG0MeWYXNf+AOQBgMwYMCAUTjOpZyUCEM/DBgwNmBkYdQNqZUxp5QawoABoynDPp0hN93ckK2H1/C4BgwYMNZjPAAwT9sZbxuyGQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '朱攀个人博客！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
