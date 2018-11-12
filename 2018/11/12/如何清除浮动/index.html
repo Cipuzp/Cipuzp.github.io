@@ -14,25 +14,25 @@
     
     
     
-    <title>CSS选择器优先级 | 个人博客 | 学习管理的前端工程师</title>
+    <title>清除浮动的几种方式 | 个人博客 | 学习管理的前端工程师</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="2.4 选择器优先级如何确定？2.4.1 比较同一级别的个数，数量多的优先级高 important &amp;gt; 内联 &amp;gt; ID &amp;gt; 类 &amp;gt; 标签 | 伪类 | 属性选择 &amp;gt; 伪对象 &amp;gt; 通配符 &amp;gt; 继承   权值的大小跟选择器的类型和数量有关，样式的优先级跟样式的定义顺序有关这也就解释了为什么 11 个标签的定义会比不上 1 个类的定义，1 个类加 11 个标签会">
+    <meta name="description" content="清除浮动的几种方式2.6 何为清除浮动？ 在非 IE 浏览器（如 Firefox）下，当容器的高度为 auto，且容器的内容中有浮动（float 为 left 或 right）的元素，在这种情况下，容器的高度不能自动伸长以适应内容的高度，使得内容溢出到容器外面而影响（甚至破坏）布局的现象。这个现象叫浮动溢出，为了防止这个现象的出现而进行的 CSS 处理，就叫 CSS 清除浮动。  浮动的定义：使元">
 <meta name="keywords" content="技术、阅读">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS选择器优先级">
-<meta property="og:url" content="http://www.cipuzp.com/2018/11/11/CSS选择器优先级/index.html">
+<meta property="og:title" content="清除浮动的几种方式">
+<meta property="og:url" content="http://www.cipuzp.com/2018/11/12/如何清除浮动/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="2.4 选择器优先级如何确定？2.4.1 比较同一级别的个数，数量多的优先级高 important &amp;gt; 内联 &amp;gt; ID &amp;gt; 类 &amp;gt; 标签 | 伪类 | 属性选择 &amp;gt; 伪对象 &amp;gt; 通配符 &amp;gt; 继承   权值的大小跟选择器的类型和数量有关，样式的优先级跟样式的定义顺序有关这也就解释了为什么 11 个标签的定义会比不上 1 个类的定义，1 个类加 11 个标签会">
+<meta property="og:description" content="清除浮动的几种方式2.6 何为清除浮动？ 在非 IE 浏览器（如 Firefox）下，当容器的高度为 auto，且容器的内容中有浮动（float 为 left 或 right）的元素，在这种情况下，容器的高度不能自动伸长以适应内容的高度，使得内容溢出到容器外面而影响（甚至破坏）布局的现象。这个现象叫浮动溢出，为了防止这个现象的出现而进行的 CSS 处理，就叫 CSS 清除浮动。  浮动的定义：使元">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-11T07:20:00.509Z">
+<meta property="og:updated_time" content="2018-11-12T09:28:27.094Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS选择器优先级">
-<meta name="twitter:description" content="2.4 选择器优先级如何确定？2.4.1 比较同一级别的个数，数量多的优先级高 important &amp;gt; 内联 &amp;gt; ID &amp;gt; 类 &amp;gt; 标签 | 伪类 | 属性选择 &amp;gt; 伪对象 &amp;gt; 通配符 &amp;gt; 继承   权值的大小跟选择器的类型和数量有关，样式的优先级跟样式的定义顺序有关这也就解释了为什么 11 个标签的定义会比不上 1 个类的定义，1 个类加 11 个标签会">
+<meta name="twitter:title" content="清除浮动的几种方式">
+<meta name="twitter:description" content="清除浮动的几种方式2.6 何为清除浮动？ 在非 IE 浏览器（如 Firefox）下，当容器的高度为 auto，且容器的内容中有浮动（float 为 left 或 right）的元素，在这种情况下，容器的高度不能自动伸长以适应内容的高度，使得内容溢出到容器外面而影响（甚至破坏）布局的现象。这个现象叫浮动溢出，为了防止这个现象的出现而进行的 CSS 处理，就叫 CSS 清除浮动。  浮动的定义：使元">
     
         <link rel="alternate" type="application/atom+xml" title="个人博客" href="/atom.xml">
     
@@ -127,7 +127,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">CSS选择器优先级</div>
+        <div class="flex-col header-title ellipsis">清除浮动的几种方式</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -149,11 +149,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">CSS选择器优先级</h1>
+        <h1 class="title">清除浮动的几种方式</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-11-11T07:19:17.536Z" itemprop="datePublished" class="page-time">
-  2018-11-11
+                <time datetime="2018-11-12T09:25:16.781Z" itemprop="datePublished" class="page-time">
+  2018-11-12
 </time>
 
 
@@ -172,18 +172,18 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-选择器优先级如何确定？"><span class="post-toc-number">1.</span> <span class="post-toc-text">2.4 选择器优先级如何确定？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-1-比较同一级别的个数，数量多的优先级高"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">2.4.1 比较同一级别的个数，数量多的优先级高</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#清除浮动的几种方式"><span class="post-toc-number">1.</span> <span class="post-toc-text">清除浮动的几种方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-6-何为清除浮动？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">2.6 何为清除浮动？</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-CSS选择器优先级"
+<article id="post-如何清除浮动"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">CSS选择器优先级</h1>
+        <h1 class="post-card-title">清除浮动的几种方式</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-11-11 15:19:17" datetime="2018-11-11T07:19:17.536Z"  itemprop="datePublished">2018-11-11</time>
+            <time class="post-time" title="2018-11-12 17:25:16" datetime="2018-11-12T09:25:16.781Z"  itemprop="datePublished">2018-11-12</time>
 
             
 
@@ -196,12 +196,41 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="2-4-选择器优先级如何确定？"><a href="#2-4-选择器优先级如何确定？" class="headerlink" title="2.4 选择器优先级如何确定？"></a>2.4 选择器优先级如何确定？</h2><h3 id="2-4-1-比较同一级别的个数，数量多的优先级高"><a href="#2-4-1-比较同一级别的个数，数量多的优先级高" class="headerlink" title="2.4.1 比较同一级别的个数，数量多的优先级高"></a>2.4.1 比较同一级别的个数，数量多的优先级高</h3><blockquote>
-<p>important &gt; 内联 &gt; ID &gt; 类 &gt; 标签 | 伪类 | 属性选择 &gt; 伪对象 &gt; 通配符 &gt; 继承</p>
+            <h1 id="清除浮动的几种方式"><a href="#清除浮动的几种方式" class="headerlink" title="清除浮动的几种方式"></a>清除浮动的几种方式</h1><h2 id="2-6-何为清除浮动？"><a href="#2-6-何为清除浮动？" class="headerlink" title="2.6 何为清除浮动？"></a>2.6 何为清除浮动？</h2><blockquote>
+<p>在非 IE 浏览器（如 Firefox）下，当容器的高度为 auto，且容器的内容中有浮动（float 为 left 或 right）的元素，在这种情况下，容器的高度不能自动伸长以适应内容的高度，使得内容溢出到容器外面而影响（甚至破坏）布局的现象。这个现象叫浮动溢出，为了防止这个现象的出现而进行的 CSS 处理，就叫 CSS 清除浮动。</p>
 </blockquote>
+<p><strong>浮动的定义</strong>：使元素脱离文档流，按照指定方向发生移动，遇到父级边界或者相邻的浮动元素停了下来。</p>
+<p><strong>高度塌陷</strong>：浮动元素父元素高度自适应（父元素不写高度时，子元素写了浮动后，父元素会发生高度塌陷）</p>
 <ol>
-<li>权值的大小跟选择器的类型和数量有关，样式的优先级跟样式的定义顺序有关<br>这也就解释了为什么 11 个标签的定义会比不上 1 个类的定义，1 个类加 11 个标签会比不上 2 个类的权重高。</li>
-<li>一个反例：<a href="https://www.zhangxinxu.com/study/201208/256-class-fire-an-id.html" title="点击进入" target="_blank" rel="noopener">256 个 class 类名选择器干掉一个 id 选择器实例页面</a><br>原因：所有的类名(classes)都是以 8 字节字符串存储的，8 字节所能 hold 的最大值就是 255。当同时出现 256 个 class, 势必会越过其边缘，溢出到 id 区域。</li>
+<li><p>clear 清除浮动</p>
+<ul>
+<li><p>在浮动元素后使用一个空元素如<code>&lt;div class=&quot;clear&quot;&gt;&lt;/div&gt;</code>，并在 CSS 中赋予<code>.clear{clear:both;}</code>属性即可清理浮动。</p>
+</li>
+<li><p>可使用<code>&lt;br class=&quot;clear&quot; /&gt;</code>或<code>&lt;hr class=&quot;clear&quot; /&gt;</code>来进行清理。</p>
+</li>
+<li><p>给行内元素设置 css 样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>优点</strong>：简单，代码少，浏览器兼容性好。<br> <strong>缺点</strong>：需要添加大量无语义的 html 元素，代码不够优雅，后期不容易维护。</p>
+</li>
+<li><p>给浮动元素后面的元素添加 clear 属性</p>
+</li>
+</ul>
+</li>
+<li><p>使用 CSS 的 overflow 属性<br>给浮动元素的容器添加<code>overflow:hidden;</code>或<code>overflow:auto;</code>可以清除浮动</p>
+</li>
+<li><p>使用伪元素</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>给浮动元素的父级添加浮动<br>给浮动元素的容器也添加上浮动属性即可清除内部浮动</p>
+<ul>
+<li><strong>缺点</strong>：会使其整体浮动，影响布局，不推荐使用。</li>
+</ul>
+</li>
+<li><p>给浮动元素的父级设置高度<br>我们知道了高度塌陷是应为给浮动元素的父级高度是自适应导致的，那么我们给它的设置适当的高度就可以解决这个问题了。</p>
+<ul>
+<li><strong>缺点</strong>：在浮动元素高度<code>不确定</code>的时候不适用</li>
+</ul>
+</li>
 </ol>
 
         </div>
@@ -211,12 +240,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-11-11T07:20:00.509Z" itemprop="dateUpdated">2018-11-11 15:20:00</time>
+    最后更新时间：<time datetime="2018-11-12T09:28:27.094Z" itemprop="dateUpdated">2018-11-12 17:28:27</time>
 </span><br>
 
 
         
-        当前路径：<a href="/2018/11/11/CSS选择器优先级/" target="_blank" rel="external">http://www.cipuzp.com/2018/11/11/CSS选择器优先级/</a>
+        当前路径：<a href="/2018/11/12/如何清除浮动/" target="_blank" rel="external">http://www.cipuzp.com/2018/11/12/如何清除浮动/</a>
         
     </div>
     
@@ -245,7 +274,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&title=《CSS选择器优先级》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/12/如何清除浮动/&title=《清除浮动的几种方式》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -255,22 +284,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&title=《CSS选择器优先级》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/12/如何清除浮动/&title=《清除浮动的几种方式》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/12/如何清除浮动/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS选择器优先级》 — 个人博客&url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&via=http://www.cipuzp.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《清除浮动的几种方式》 — 个人博客&url=http://www.cipuzp.com/2018/11/12/如何清除浮动/&via=http://www.cipuzp.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/12/如何清除浮动/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -293,18 +322,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/11/12/BFC 是什么/" id="post-prev" class="post-nav-link">
+      <a href="/2018/11/12/立即执行函数/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">BFC 是什么</h4>
+        <h4 class="title">立即执行函数</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/11/11/Normalize vs Reset/" id="post-next" class="post-nav-link">
+      <a href="/2018/11/12/BFC 是什么/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Normalize vs Reset</h4>
+        <h4 class="title">BFC 是什么</h4>
       </a>
     </div>
   
@@ -411,7 +440,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&title=《CSS选择器优先级》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/12/如何清除浮动/&title=《清除浮动的几种方式》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -421,22 +450,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&title=《CSS选择器优先级》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/12/如何清除浮动/&title=《清除浮动的几种方式》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/12/如何清除浮动/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS选择器优先级》 — 个人博客&url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&via=http://www.cipuzp.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《清除浮动的几种方式》 — 个人博客&url=http://www.cipuzp.com/2018/11/12/如何清除浮动/&via=http://www.cipuzp.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/12/如何清除浮动/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -447,7 +476,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3ayw7CMAxE0fz/TxcJsUGFaGbcguLcrBCFNoeF8SNjyOt4LuWd8/p2t/kdxh0LBgwYyzKO6TpvWnn8+bXyFPe7MGDA2I0xD7Jznh6O9Wip7w0GDBgwKgFU2br+XBgwYMDIAq5SoCol65//N2DAgLEIQ7md8o7etst+vgtqcRgwYCzIcAcDv3x943wDBgwYizAOc+nDS/e52X5e34UBA0ZrhtvEz8pX93WYgMKAAaMpo164utmanoDqrToYMGD0ZlTCq9IgywYMytVwIgoDBoxlGS7Gbdy7xy/0HwIGDBj7MLKmfDbCzAaTdi0OAwaMRgw3mLqfcYOmAvtwTxgwYLRmuKEzGz26QTYsdGHAgNGU4aZiyrAzGy24LTYYMGDsw7jq2MS1g0+3tQcDBowdGFmBOqKVhWx7EgsDBox2DH08UEHWk7/LBpkwYMBYkJEVlmHWKaeh9n5gwIDRlOGGS7cozTaqJ4JvXUMYMGA0ZbiDST1BdBNK/epXHgwYMJoy3Ja9foRCH4W6Cah/GQYMGB0YSlGaNdTcABoORGHAgNGaUS9QdbyeSoYDURgwYDRlHOaqFKVuE80oZWHAgNGakUVot5StHLxQngsDBowdGHcUrpXAqu8BBgwYuzHqo8cwlheC/lDyTRgwYGzG0MeWYXNf+AOQBgMwYMCAUTjOpZyUCEM/DBgwNmBkYdQNqZUxp5QawoABoynDPp0hN93ckK2H1/C4BgwYMNZjPAAwT9sZbxuyGQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACI0lEQVR42u3a22rDMBAFwP7/T6evgWL3nJVbiDR+Co4ra1JY9qKvr/h6vV3vd35+Xl9zthoGBsbejNfttcK4/6vkTrI3DAyMcxhXm8g39FRozt+CgYGBMWO0+VtyHwMDA6NlXCVzbTl6vxoGBgbGrIht22ez5O/Pa3EMDIwPZOQp3f9//pP5BgYGxkcxXqMrKUrXB6XFfjAwMLZmzAaNSes/wbelLAYGxsmMNhF8qpU2e2MR1jEwMLZgtEPKvBk3Owp2/wNd7hYDA2NrxiwRTDaUjDaTwWcBxsDA2JoRHWV4aHiQp5JtEomBgbErYyX8tS2ztmQtgiwGBsYxjPz1K5h8JJmXvhgYGHszknB2H/5WhqArCSIGBsbJjJWSsn7xwgAVAwPjHEbS9G8PVSThe7Zm1G7DwMDYjjELlOvpY3tmrUgZMTAwtmPkr88HCe3IYbYOBgYGxnrTP9lQG9AvMRgYGAcwVsLi7EBGO7z8pQDGwMDYmpE/lJedOSwP2UXRi4GBsR1jvUGfbysfFQz/AxgYGJsy2gMQybGMfM0i4UvWxMDA2JTxKq8HJqUBIG/MYWBgnMDIr1l61x4jiw5+lWEaAwNjD8Z6sz5P5vK0sv4WAwPjAMb9Jp4Ki7OfoyhlMTAwjmck37ZlZ/78cJCJgYFxGGM2EkiK3rbcvewdYmBgbM1YOczaPrMyKnig3YaBgfGBjLZ0zENh+/q28YeBgXEA4xulS9sZ5E5ZFwAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 

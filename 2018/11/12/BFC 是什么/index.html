@@ -14,25 +14,25 @@
     
     
     
-    <title>CSS选择器优先级 | 个人博客 | 学习管理的前端工程师</title>
+    <title>BFC 是什么 | 个人博客 | 学习管理的前端工程师</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content="">
-    <meta name="description" content="2.4 选择器优先级如何确定？2.4.1 比较同一级别的个数，数量多的优先级高 important &amp;gt; 内联 &amp;gt; ID &amp;gt; 类 &amp;gt; 标签 | 伪类 | 属性选择 &amp;gt; 伪对象 &amp;gt; 通配符 &amp;gt; 继承   权值的大小跟选择器的类型和数量有关，样式的优先级跟样式的定义顺序有关这也就解释了为什么 11 个标签的定义会比不上 1 个类的定义，1 个类加 11 个标签会">
+    <meta name="description" content="BFC 是什么2.5 BFC 是什么？ 参考自前端精选文摘：BFC 神奇背后的原理  2.5.1 在解释 BFC 是什么之前，需要先介绍 Box、Formatting Context 的概念。 Box: CSS 布局的基本单位Box 是 CSS 布局的对象和基本单位， 直观点来说，就是一个页面是由很多个 Box 组成的。元素的类型和 display 属性，决定了这个 Box 的类型。 不同类型的">
 <meta name="keywords" content="技术、阅读">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS选择器优先级">
-<meta property="og:url" content="http://www.cipuzp.com/2018/11/11/CSS选择器优先级/index.html">
+<meta property="og:title" content="BFC 是什么">
+<meta property="og:url" content="http://www.cipuzp.com/2018/11/12/BFC 是什么/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="2.4 选择器优先级如何确定？2.4.1 比较同一级别的个数，数量多的优先级高 important &amp;gt; 内联 &amp;gt; ID &amp;gt; 类 &amp;gt; 标签 | 伪类 | 属性选择 &amp;gt; 伪对象 &amp;gt; 通配符 &amp;gt; 继承   权值的大小跟选择器的类型和数量有关，样式的优先级跟样式的定义顺序有关这也就解释了为什么 11 个标签的定义会比不上 1 个类的定义，1 个类加 11 个标签会">
+<meta property="og:description" content="BFC 是什么2.5 BFC 是什么？ 参考自前端精选文摘：BFC 神奇背后的原理  2.5.1 在解释 BFC 是什么之前，需要先介绍 Box、Formatting Context 的概念。 Box: CSS 布局的基本单位Box 是 CSS 布局的对象和基本单位， 直观点来说，就是一个页面是由很多个 Box 组成的。元素的类型和 display 属性，决定了这个 Box 的类型。 不同类型的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-11T07:20:00.509Z">
+<meta property="og:updated_time" content="2018-11-12T09:23:02.996Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS选择器优先级">
-<meta name="twitter:description" content="2.4 选择器优先级如何确定？2.4.1 比较同一级别的个数，数量多的优先级高 important &amp;gt; 内联 &amp;gt; ID &amp;gt; 类 &amp;gt; 标签 | 伪类 | 属性选择 &amp;gt; 伪对象 &amp;gt; 通配符 &amp;gt; 继承   权值的大小跟选择器的类型和数量有关，样式的优先级跟样式的定义顺序有关这也就解释了为什么 11 个标签的定义会比不上 1 个类的定义，1 个类加 11 个标签会">
+<meta name="twitter:title" content="BFC 是什么">
+<meta name="twitter:description" content="BFC 是什么2.5 BFC 是什么？ 参考自前端精选文摘：BFC 神奇背后的原理  2.5.1 在解释 BFC 是什么之前，需要先介绍 Box、Formatting Context 的概念。 Box: CSS 布局的基本单位Box 是 CSS 布局的对象和基本单位， 直观点来说，就是一个页面是由很多个 Box 组成的。元素的类型和 display 属性，决定了这个 Box 的类型。 不同类型的">
     
         <link rel="alternate" type="application/atom+xml" title="个人博客" href="/atom.xml">
     
@@ -127,7 +127,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">CSS选择器优先级</div>
+        <div class="flex-col header-title ellipsis">BFC 是什么</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -149,11 +149,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">CSS选择器优先级</h1>
+        <h1 class="title">BFC 是什么</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-11-11T07:19:17.536Z" itemprop="datePublished" class="page-time">
-  2018-11-11
+                <time datetime="2018-11-12T09:22:38.992Z" itemprop="datePublished" class="page-time">
+  2018-11-12
 </time>
 
 
@@ -172,18 +172,18 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-4-选择器优先级如何确定？"><span class="post-toc-number">1.</span> <span class="post-toc-text">2.4 选择器优先级如何确定？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-1-比较同一级别的个数，数量多的优先级高"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">2.4.1 比较同一级别的个数，数量多的优先级高</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#BFC-是什么"><span class="post-toc-number">1.</span> <span class="post-toc-text">BFC 是什么</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-5-BFC-是什么？"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">2.5 BFC 是什么？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-5-1-在解释-BFC-是什么之前，需要先介绍-Box、Formatting-Context-的概念。"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">2.5.1 在解释 BFC 是什么之前，需要先介绍 Box、Formatting Context 的概念。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-5-3-BFC-定义"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">2.5.3 BFC 定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-5-4-形成条件"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">2.5.4 形成条件</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
 
-<article id="post-CSS选择器优先级"
+<article id="post-BFC 是什么"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">CSS选择器优先级</h1>
+        <h1 class="post-card-title">BFC 是什么</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-11-11 15:19:17" datetime="2018-11-11T07:19:17.536Z"  itemprop="datePublished">2018-11-11</time>
+            <time class="post-time" title="2018-11-12 17:22:38" datetime="2018-11-12T09:22:38.992Z"  itemprop="datePublished">2018-11-12</time>
 
             
 
@@ -196,13 +196,40 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="2-4-选择器优先级如何确定？"><a href="#2-4-选择器优先级如何确定？" class="headerlink" title="2.4 选择器优先级如何确定？"></a>2.4 选择器优先级如何确定？</h2><h3 id="2-4-1-比较同一级别的个数，数量多的优先级高"><a href="#2-4-1-比较同一级别的个数，数量多的优先级高" class="headerlink" title="2.4.1 比较同一级别的个数，数量多的优先级高"></a>2.4.1 比较同一级别的个数，数量多的优先级高</h3><blockquote>
-<p>important &gt; 内联 &gt; ID &gt; 类 &gt; 标签 | 伪类 | 属性选择 &gt; 伪对象 &gt; 通配符 &gt; 继承</p>
+            <h1 id="BFC-是什么"><a href="#BFC-是什么" class="headerlink" title="BFC 是什么"></a>BFC 是什么</h1><h2 id="2-5-BFC-是什么？"><a href="#2-5-BFC-是什么？" class="headerlink" title="2.5 BFC 是什么？"></a>2.5 BFC 是什么？</h2><blockquote>
+<p>参考自前端精选文摘：<a href="http://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html" target="_blank" rel="noopener">BFC 神奇背后的原理</a></p>
 </blockquote>
-<ol>
-<li>权值的大小跟选择器的类型和数量有关，样式的优先级跟样式的定义顺序有关<br>这也就解释了为什么 11 个标签的定义会比不上 1 个类的定义，1 个类加 11 个标签会比不上 2 个类的权重高。</li>
-<li>一个反例：<a href="https://www.zhangxinxu.com/study/201208/256-class-fire-an-id.html" title="点击进入" target="_blank" rel="noopener">256 个 class 类名选择器干掉一个 id 选择器实例页面</a><br>原因：所有的类名(classes)都是以 8 字节字符串存储的，8 字节所能 hold 的最大值就是 255。当同时出现 256 个 class, 势必会越过其边缘，溢出到 id 区域。</li>
+<h3 id="2-5-1-在解释-BFC-是什么之前，需要先介绍-Box、Formatting-Context-的概念。"><a href="#2-5-1-在解释-BFC-是什么之前，需要先介绍-Box、Formatting-Context-的概念。" class="headerlink" title="2.5.1 在解释 BFC 是什么之前，需要先介绍 Box、Formatting Context 的概念。"></a>2.5.1 在解释 BFC 是什么之前，需要先介绍 Box、Formatting Context 的概念。</h3><ol>
+<li><p>Box: CSS 布局的基本单位<br>Box 是 CSS 布局的对象和基本单位， 直观点来说，就是一个页面是由很多个 Box 组成的。元素的类型和 display 属性，决定了这个 Box 的类型。 不同类型的 Box， 会参与不同的 Formatting Context（一个决定如何渲染文档的容器），因此 Box 内的元素会以不同的方式渲染。让我们看看有哪些盒子：</p>
+<ul>
+<li><code>block-level</code> box:display 属性为 block, list-item, table 的元素，会生成 block-level box。并且参与 block fomatting context；</li>
+<li><code>inline-level</code> box:display 属性为 inline, inline-block, inline-table 的元素，会生成 inline-level box。并且参与 inline formatting context；</li>
+<li><code>run-in</code> box: css3 中才有， 这儿先不讲了。</li>
+</ul>
+</li>
+<li><p>Formatting context<br>Formatting context 是 W3C CSS2.1 规范中的一个概念。它是页面中的一块渲染区域，并且有一套渲染规则，它决定了其子元素将如何定位，以及和其他元素的关系和相互作用。最常见的 Formatting context 有 Block fomatting context (简称 BFC)和 Inline formatting context (简称 IFC)。</p>
+</li>
 </ol>
+<p>CSS2.1 中只有 BFC 和 IFC, 中还增加了 GFC 和 FFC。</p>
+<h3 id="2-5-3-BFC-定义"><a href="#2-5-3-BFC-定义" class="headerlink" title="2.5.3 BFC 定义"></a>2.5.3 BFC 定义</h3><blockquote>
+<p>BFC(Block formatting context)直译为”块级格式化上下文”。它是一个独立的渲染区域，只有 Block-level box 参与， 它规定了内部的 Block-level Box 如何布局，并且与这个区域外部毫不相干。</p>
+</blockquote>
+<p><strong>BFC 布局规则：</strong></p>
+<ul>
+<li>内部的 Box 会在垂直方向，一个接一个地放置。</li>
+<li>Box 垂直方向的距离由 margin 决定。属于同一个 BFC 的两个相邻 Box 的 margin 会发生重叠。BFC 会阻止垂直外边距（margin-top、margin-bottom）折叠</li>
+<li>每个元素的 margin box 的左边， 与包含块 border box 的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</li>
+<li>BFC 的区域不会与 float box 重叠。</li>
+<li>BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li>
+<li>计算 BFC 的高度时，浮动元素也参与计算</li>
+</ul>
+<h3 id="2-5-4-形成条件"><a href="#2-5-4-形成条件" class="headerlink" title="2.5.4 形成条件"></a>2.5.4 形成条件</h3><ul>
+<li>根元素</li>
+<li>float 属性不为 none</li>
+<li>position 为 absolute 或 fixed</li>
+<li>display 为 inline-block, table-cell, table-caption, flex, inline-flex</li>
+<li>overflow 不为 visible</li>
+</ul>
 
         </div>
 
@@ -211,12 +238,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-11-11T07:20:00.509Z" itemprop="dateUpdated">2018-11-11 15:20:00</time>
+    最后更新时间：<time datetime="2018-11-12T09:23:02.996Z" itemprop="dateUpdated">2018-11-12 17:23:02</time>
 </span><br>
 
 
         
-        当前路径：<a href="/2018/11/11/CSS选择器优先级/" target="_blank" rel="external">http://www.cipuzp.com/2018/11/11/CSS选择器优先级/</a>
+        当前路径：<a href="/2018/11/12/BFC 是什么/" target="_blank" rel="external">http://www.cipuzp.com/2018/11/12/BFC 是什么/</a>
         
     </div>
     
@@ -245,7 +272,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&title=《CSS选择器优先级》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/12/BFC 是什么/&title=《BFC 是什么》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -255,22 +282,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&title=《CSS选择器优先级》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/12/BFC 是什么/&title=《BFC 是什么》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/12/BFC 是什么/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS选择器优先级》 — 个人博客&url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&via=http://www.cipuzp.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《BFC 是什么》 — 个人博客&url=http://www.cipuzp.com/2018/11/12/BFC 是什么/&via=http://www.cipuzp.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/12/BFC 是什么/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -293,18 +320,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2018/11/12/BFC 是什么/" id="post-prev" class="post-nav-link">
+      <a href="/2018/11/12/如何清除浮动/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">BFC 是什么</h4>
+        <h4 class="title">清除浮动的几种方式</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2018/11/11/Normalize vs Reset/" id="post-next" class="post-nav-link">
+      <a href="/2018/11/11/CSS选择器优先级/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Normalize vs Reset</h4>
+        <h4 class="title">CSS选择器优先级</h4>
       </a>
     </div>
   
@@ -411,7 +438,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&title=《CSS选择器优先级》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/12/BFC 是什么/&title=《BFC 是什么》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -421,22 +448,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&title=《CSS选择器优先级》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/12/BFC 是什么/&title=《BFC 是什么》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/12/BFC 是什么/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS选择器优先级》 — 个人博客&url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/&via=http://www.cipuzp.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《BFC 是什么》 — 个人博客&url=http://www.cipuzp.com/2018/11/12/BFC 是什么/&via=http://www.cipuzp.com" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/11/CSS选择器优先级/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/12/BFC 是什么/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -447,7 +474,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3ayw7CMAxE0fz/TxcJsUGFaGbcguLcrBCFNoeF8SNjyOt4LuWd8/p2t/kdxh0LBgwYyzKO6TpvWnn8+bXyFPe7MGDA2I0xD7Jznh6O9Wip7w0GDBgwKgFU2br+XBgwYMDIAq5SoCol65//N2DAgLEIQ7md8o7etst+vgtqcRgwYCzIcAcDv3x943wDBgwYizAOc+nDS/e52X5e34UBA0ZrhtvEz8pX93WYgMKAAaMpo164utmanoDqrToYMGD0ZlTCq9IgywYMytVwIgoDBoxlGS7Gbdy7xy/0HwIGDBj7MLKmfDbCzAaTdi0OAwaMRgw3mLqfcYOmAvtwTxgwYLRmuKEzGz26QTYsdGHAgNGU4aZiyrAzGy24LTYYMGDsw7jq2MS1g0+3tQcDBowdGFmBOqKVhWx7EgsDBox2DH08UEHWk7/LBpkwYMBYkJEVlmHWKaeh9n5gwIDRlOGGS7cozTaqJ4JvXUMYMGA0ZbiDST1BdBNK/epXHgwYMJoy3Ja9foRCH4W6Cah/GQYMGB0YSlGaNdTcABoORGHAgNGaUS9QdbyeSoYDURgwYDRlHOaqFKVuE80oZWHAgNGakUVot5StHLxQngsDBowdGHcUrpXAqu8BBgwYuzHqo8cwlheC/lDyTRgwYGzG0MeWYXNf+AOQBgMwYMCAUTjOpZyUCEM/DBgwNmBkYdQNqZUxp5QawoABoynDPp0hN93ckK2H1/C4BgwYMNZjPAAwT9sZbxuyGQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3a0U7DMAwF0P3/Tw+JJxBQru0WUe/kadqmNicPUeybxyMez/fx0+eP33z9z/FzfhqPKwYGBsZtGcnjkmkl7OSNTSoGBsYLMKqbbPKEZFM+XrLC8mFgYGAEh7b5VEYbPQYGBkZruzw+3iVTx8DAwKgWsb2m2GTql9TiGBgYN2TMg4HrPv9pvoGBgfEvGc/W6DXjrhsYGBi7GXkrrdosy8OA5J/RRoyBgbGUcRxGnvuycw+I32y1GBgYSxlnXXqYBwPzph4GBsZuxrkt+LO24OpVDwwMjK2MQjPrsjCyF3yWu4YYGBi3ZVwRUh4fN/OtuforBgbGVkavZJ0fCvOAITq2YmBgrGYkU6wWpZPDYnXJCj9gYGDcllEtKZOwsxdeVscvtTgGBsYixiQeqOYP1W16tAQYGBjrGMmxrNpom0+9HKNiYGAsZUza93nZmRS31Wr00xMwMDBegNFr61cvZEw6gr9s9xgYGKsZeUsrKW6fxZGXxMliYWBg7GZU48YeMl+mPFoo5w8YGBg3Z/SuZzVfWWzMlTMNDAyMdYw8buxtnb1rYaPLFhgYGIsYk7JzcrjMi9joqIqBgbGaMT9lVYPMHqkXMGBgYGxi5E3//GXzkLIaqWJgYLwCo3rgqzbjRo2zpOjFwMDAaBWZ+VQmi4KBgYGRx5z5Ya56LSw6dGJgYLwAI5lQvgUn0ULvLSfU4hgYGDdkVIOBSSt/AqgGqxgYGCsYb+K6apjtYD+FAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

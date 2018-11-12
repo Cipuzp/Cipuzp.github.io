@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>立即执行函数 | 个人博客 | 学习管理的前端工程师</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="3.6 立即执行函数Immediately-Invoked Function Expression (IIFE)  参考自此篇文章    现在我们定义了一个函数function foo(){}或者var foo = function(){}，函数名后加上一对小括号即可完成对该函数的调用，比如下面的代码： 1234var foo = function() &amp;#123;  /* code */&amp;#12">
+<meta name="keywords" content="技术、阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="立即执行函数">
+<meta property="og:url" content="http://www.cipuzp.com/2018/11/12/立即执行函数/index.html">
+<meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="3.6 立即执行函数Immediately-Invoked Function Expression (IIFE)  参考自此篇文章    现在我们定义了一个函数function foo(){}或者var foo = function(){}，函数名后加上一对小括号即可完成对该函数的调用，比如下面的代码： 1234var foo = function() &amp;#123;  /* code */&amp;#12">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-11-12T11:55:28.679Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="立即执行函数">
+<meta name="twitter:description" content="3.6 立即执行函数Immediately-Invoked Function Expression (IIFE)  参考自此篇文章    现在我们定义了一个函数function foo(){}或者var foo = function(){}，函数名后加上一对小括号即可完成对该函数的调用，比如下面的代码： 1234var foo = function() &amp;#123;  /* code */&amp;#12">
+    
+        <link rel="alternate" type="application/atom+xml" title="个人博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">朱攀</h5>
+          <a href="mailto:1556567686@qq.com" title="1556567686@qq.com" class="mail">1556567686@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/cipuzp" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                友情链接
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/vue-travel" target="_blank" >
+                <i class="icon icon-lg icon-vue-travel"></i>
+                Vue仿去哪儿项目
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">立即执行函数</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">立即执行函数</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-12T11:55:13.011Z" itemprop="datePublished" class="page-time">
+  2018-11-12
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-6-立即执行函数"><span class="post-toc-number">1.</span> <span class="post-toc-text">3.6 立即执行函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-6-1-为什么要使用-IIFE"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">3.6.1 为什么要使用 IIFE</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-立即执行函数"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">立即执行函数</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-12 19:55:13" datetime="2018-11-12T11:55:13.011Z"  itemprop="datePublished">2018-11-12</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="3-6-立即执行函数"><a href="#3-6-立即执行函数" class="headerlink" title="3.6 立即执行函数"></a>3.6 立即执行函数</h2><p>Immediately-Invoked Function Expression (IIFE)</p>
+<blockquote>
+<p>参考自<a href="http://benalman.com/news/2010/11/immediately-invoked-function-expression/#iife" target="_blank" rel="noopener">此篇</a>文章  </p>
+</blockquote>
+<p>现在我们定义了一个函数<code>function foo(){}</code>或者<code>var foo = function(){}</code>，<code>函数名</code>后加上一对小括号即可完成对<code>该函数的调用</code>，比如下面的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* code */</span></span><br><span class="line">&#125;</span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
+<p>接着我们来看下面的代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* code */</span> &#125;(); <span class="comment">// SyntaxError: Unexpected token (</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>报错了，这是为何？<br>这是因为在 javascript 代码解释时，当遇到<code>function</code>关键字时，会默认把它当做是一个<code>函数声明</code>，而不是函数表达式，如果没有把它显视地表达成函数表达式，就报错了，因为函数声明<code>需要一个函数名</code>，而上面的代码中函数没有函数名。以上代码在执行到第一个左括号时报错，理论上是应该有个函数名的。</li>
+</ul>
+<p>有意思的是，如果我们给它函数名，然后加上<code>()</code>立即调用，同样也会报错，而这次报错原因却不相同：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* code */</span> &#125;(); <span class="comment">// SyntaxError: Unexpected token )</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>为什么会这样？<br>在一个<code>表达式</code>后面加上括号，表示该<code>表达式立即执行</code>；<br>而如果是在一个<code>语句</code>后面加上括号，该括号完全<code>和之前的语句不相关</code>，而只是一个<code>分组操作符</code>，用来控制运算中的优先级（小括号里的先运算）。所以以上代码等价于：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123; <span class="comment">/* code */</span> &#125;</span><br><span class="line">(); <span class="comment">// SyntaxError: Unexpected token )</span></span><br></pre></td></tr></table></figure>
+<p>相当于先声明了一个叫 foo 的函数，之后进行()内的表达式运算，但是()（分组操作符）内的表达式不能为空，所以报错。（以上代码，也就是执行到右括号时，发现表达式为空，所以报错）。</p>
+<ul>
+<li>如何解决？<br>其实很简单，只需要用括号全部括起来即可，比如下面这样：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* code */</span></span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>为什么这样就能立即执行并且不报错呢？</strong><br><strong>因为在 javascript 里，括号内部不能包含语句，当解析器对代码进行解释的时候，先碰到了<code>()</code>，然后碰到<code>function</code>关键字就会自动将<code>()</code>里面的代码识别为<code>函数表达式</code>而不是函数声明。</strong></li>
+</ul>
+<p>而立即执行函数并非只有上面的一种写法，写法真是五花八门：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 最常用的两种写法</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* code */</span></span><br><span class="line">&#125;)() <span class="comment">// 老道推荐写法</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* code */</span></span><br><span class="line">&#125;)() <span class="comment">// 当然这种也可以</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 括号和JS的一些操作符（如 = &amp;&amp; || ,等）可以在函数表达式和函数声明上消除歧义</span></span><br><span class="line"><span class="comment">// 如下代码中，解析器已经知道一个是表达式了，于是也会把另一个默认为表达式</span></span><br><span class="line"><span class="comment">// 但是两者交换则会报错</span></span><br><span class="line"><span class="keyword">var</span> i = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">10</span></span><br><span class="line">&#125;)()</span><br><span class="line"><span class="literal">true</span> &amp;&amp;</span><br><span class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* code */</span></span><br><span class="line">  &#125;)()</span><br><span class="line"><span class="number">0</span>,</span><br><span class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">/* code */</span></span><br><span class="line">  &#125;)()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果你不怕代码晦涩难读，也可以选择一元运算符</span></span><br><span class="line">!(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* code */</span></span><br><span class="line">&#125;)()</span><br><span class="line">~(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* code */</span></span><br><span class="line">&#125;)()</span><br><span class="line">-(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* code */</span></span><br><span class="line">&#125;)()</span><br><span class="line">+(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* code */</span></span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 你也可以这样</span></span><br><span class="line"><span class="keyword">new</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* code */</span></span><br><span class="line">&#125;()</span><br><span class="line"><span class="keyword">new</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">/* code */</span></span><br><span class="line">&#125;() <span class="comment">// 带参数</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-6-1-为什么要使用-IIFE"><a href="#3-6-1-为什么要使用-IIFE" class="headerlink" title="3.6.1 为什么要使用 IIFE"></a>3.6.1 为什么要使用 IIFE</h3><ul>
+<li><p>不必为函数命名，避免了污染全局变量；</p>
+</li>
+<li><p>IIFE内部形成了一个单独的作用域，可以封装一些外部无法读取的私有变量。</p>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-11-12T11:55:28.679Z" itemprop="dateUpdated">2018-11-12 19:55:28</time>
+</span><br>
+
+
+        
+        当前路径：<a href="/2018/11/12/立即执行函数/" target="_blank" rel="external">http://www.cipuzp.com/2018/11/12/立即执行函数/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://www.cipuzp.com">
+            <img src="/img/avatar.jpg" alt="朱攀">
+            朱攀
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/12/立即执行函数/&title=《立即执行函数》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/12/立即执行函数/&title=《立即执行函数》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/12/立即执行函数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《立即执行函数》 — 个人博客&url=http://www.cipuzp.com/2018/11/12/立即执行函数/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/12/立即执行函数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/11/12/如何清除浮动/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">清除浮动的几种方式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃辣条~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>
+                <a href="/atom.xml" target="_blank" class="rss" title="rss">
+                    <i class="icon icon-lg icon-rss"></i>
+                </a>
+            </span>
+            
+            <span>
+                博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>
+                朱攀 &copy;
+                
+                2015 -
+                
+                2018</span>
+            <!-- <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span> -->
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.cipuzp.com/2018/11/12/立即执行函数/&title=《立即执行函数》 — 个人博客&pic=http://www.cipuzp.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.cipuzp.com/2018/11/12/立即执行函数/&title=《立即执行函数》 — 个人博客&source=技术、程序员、前端、读书" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.cipuzp.com/2018/11/12/立即执行函数/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《立即执行函数》 — 个人博客&url=http://www.cipuzp.com/2018/11/12/立即执行函数/&via=http://www.cipuzp.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.cipuzp.com/2018/11/12/立即执行函数/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGklEQVR42u3aSYoDMQwF0Nz/0ultQxPzJVUabL9aBVKD3kZYw+sVX+/4+n1/8nv9nocvDAyMbRnVsP4+9emd6/vXpDIVAwPjAsY6lOST66eqoeexYWBgYDyVHKupGQMDA6PH6JWpyQHxXxMuBgbGtoykiE2K2zng67U4BgbGhoy86/7/v78y38DAwNiK8S5e65FAkijXX29GhYGBcTRjMsJMStAkQ1bf//EAioGBcRkjGVX2Eut8ePmRh4GBcQGjV8TO1y/mSR8DA+MeRi8JVgvR1/cuDAyMQxnVw1xeXs6Te7NriIGBcRyjuuLQK0Gr5XFznImBgXEo49lQeq23PO1+jBADA+MCRv6K3tJY8u9odQMDA+NoxlPDyMkAIC93MTAwMHpNrqQll/xbbephYGDcxmguNwwOf71DYXkSi4GBcQRjfdP8IFgdZPbKZgwMjLMZ1cSaBNFLu/mRsdw7xMDAOIJR/dhkCSPBVwelGBgYNzB6R7E83MnRs9Dgw8DAuJKRp79JEL3BZ3NzBAMDY1vGfOiYtO0mzbX8nRgYGOcxJgsW+WpXdQmsXAxjYGAczagmuAk4T7L50LQMw8DA2JbRS7LV0rR3fyHhYmBgXMCoHteqrbHeAkfhuImBgYGxDKuXrOeJ+4GEi4GBcTRjko6ry2EYGBgYvcZZPpKspulkjPpAuw0DA2MrxnxHY17iVgHNoSYGBsZ+jB+2HnrA/v37ngAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '朱攀个人博客！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
