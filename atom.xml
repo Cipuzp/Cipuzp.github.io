@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cipuzp.com/"/>
-  <updated>2018-11-12T11:55:28.679Z</updated>
+  <updated>2018-11-15T07:28:17.507Z</updated>
   <id>http://www.cipuzp.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JSP相关知识</title>
+    <link href="http://www.cipuzp.com/2018/11/15/jsp/"/>
+    <id>http://www.cipuzp.com/2018/11/15/jsp/</id>
+    <published>2018-11-15T07:27:56.956Z</published>
+    <updated>2018-11-15T07:28:17.507Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="web-服务器概念及类型"><a href="#web-服务器概念及类型" class="headerlink" title="web 服务器概念及类型"></a>web 服务器概念及类型</h1><ul><li>外部服务器又称 www 服务器网站服务器站点服务器，从本质上说它就是一个软件系统</li><li>iis 服务器、apache 服务器、tomcat 服务器、weblogic 服务器、jboss 服务器</li></ul><h1 id="C-S、B-S-体系结构内容以及区别"><a href="#C-S、B-S-体系结构内容以及区别" class="headerlink" title="C/S、B/S 体系结构内容以及区别"></a>C/S、B/S 体系结构内容以及区别</h1><ul><li><p>CS 体系结构<br>典型的两层架构，客户端/服务器端结构</p></li><li><p>BS 体系结构<br>浏览器/服务器结构</p></li><li><p>它们之间的区别</p><p>硬件环境不同，CS 建立在专用网络上，BS 建立在广域网络上<br> 对安全要求不同，CS 相对固定，BS 可公开<br> 对程序架构不同，CS 更注重流程<br> 软件重用不同，CS 不可避免整体性的考虑，bs 相对独立<br> 系统维护不同，CS 维护难，BS 维护简单<br> 处理问题不同，CS 可以处理固定用户群，bs 相对较散<br> 用户接口不同，CS 多建立在 windows 平台上，BS 多建立在浏览器<br> 信息流不同，CS 一般是典型的中央集权式处理，交互性较低；BS 信息流可以变换，更像一个市场中心</p></li></ul><h1 id="静态网页"><a href="#静态网页" class="headerlink" title="静态网页"></a>静态网页</h1><ol><li>每个静态网页都有一个固定的地址</li><li>静态网页发布到服务器上后，无论是否被访问，都是一个独立的文件</li><li>静态网页的内容相对稳定，不含特殊代码</li><li>由于不需要通过数据库工作，因此静态网页的访问速度比较快</li></ol><h1 id="动态网页"><a href="#动态网页" class="headerlink" title="动态网页"></a>动态网页</h1><ol><li>动态网站可以实现交互功能，如用户注册信息发布</li><li>动态网页并不是独立存在于服务器的网页文件，需要浏览器发出请求时才反馈</li><li>动态网页中包含有服务器端脚本</li></ol><h1 id="jsp-javabean"><a href="#jsp-javabean" class="headerlink" title="jsp+javabean"></a>jsp+javabean</h1><ul><li>JSP 实现页面的显示，Javabean 对象用来保存数据和实现商业逻辑</li></ul><h1 id="JSP-javabean-servlet"><a href="#JSP-javabean-servlet" class="headerlink" title="JSP + javabean + servlet"></a>JSP + javabean + servlet</h1><ul><li>控制器的角色由 servlet 来实现，视图的角色由 JSP 页面来实现，模型的角色由 javabean 来实现</li></ul><h1 id="JSP-内置对象类型及作用范围"><a href="#JSP-内置对象类型及作用范围" class="headerlink" title="JSP 内置对象类型及作用范围"></a>JSP 内置对象类型及作用范围</h1><ul><li><p>application 的作用范围<br>作用范围是从服务器开始运行，到服务器关闭</p></li><li><p>session 作用范围<br>在客户端与服务端相连接开始，到连接中断为止</p></li><li><p>request 的作用范围<br>在一个 jsp 页面向另一个 jsp 页面提出请求到请求完成之间，再完成请求后结束</p></li><li><p>page 作用范围<br>作用范围是当前页</p></li></ul><h1 id="servlet-工作原理及生命周期"><a href="#servlet-工作原理及生命周期" class="headerlink" title="servlet 工作原理及生命周期"></a>servlet 工作原理及生命周期</h1><ul><li><p>工作原理<br>当服务器接收到一个 HTTP 请求时，服务器会将请求交给 servlet 的容器，容器首先对请求的 url 进行解析，并根据 web.xml 文件找到相应的 servlet，同时将 request response 传递给 servlet。servlet 通过 request 对象获取客户端请求者，请求信息及其他信息，servlet 处理完请求后，会把所有需要返回的信息放入 response 对象中，并返回给客户端，servlet 一旦处理完请求，servlet 容器就会刷新 response 对象，并将控制权重新交给服务器</p></li><li><p>生命周期<br>从服务器开始运行时开始，然后不停的处理来自浏览器的请求，并通过服务器将响应结果返回给客户端，直到服务器停止运行，servlet 才会被清除</p></li></ul><h1 id="javabean-概念及作用"><a href="#javabean-概念及作用" class="headerlink" title="javabean 概念及作用"></a>javabean 概念及作用</h1><ul><li><p>概念<br>是一种 Java 组件技术，是由 sun 公司提出来为了适应网络计算的组件结构</p></li><li><p>作用<br>将 html 和 Java 代码分离，方便维护<br>可以将经常使用的代码抽象成一个 javabean 组建，方便调用</p></li></ul><h1 id="过滤器概念及处理过程"><a href="#过滤器概念及处理过程" class="headerlink" title="过滤器概念及处理过程"></a>过滤器概念及处理过程</h1><ul><li>过滤器是服务器与客户端请求与响应的中间层组件</li><li>客户端通过 request 进入到 filterchain，然后通过 servlet 之后再返回到 filterchain，通过 response 返回到浏览器</li></ul><h1 id="监听器概念及创作步骤"><a href="#监听器概念及创作步骤" class="headerlink" title="监听器概念及创作步骤"></a>监听器概念及创作步骤</h1><ul><li>监听器是 servlet 规范中定义的一种特殊类，其对应者观察者模式，当事件发生时会自动触发该事件对应的 listener</li><li><p>httpsessionlistener 监听器，负责监听 HTTP 会话<br>sessioncreated（httpsessionevent se）；sessiondestroyed</p></li><li><p>servletcontextlistener 监听器，用于监听 servletcontext 创建和删除<br>contextdestroyed（servletcontexevent sce）；contextinitialized</p></li><li><p>servletresquestlistener 监听器<br>requestdestroyed（servletrequestevent sre）；requedtinitialized（）</p></li></ul><h1 id="使用-jdbc-驱动连接数据库"><a href="#使用-jdbc-驱动连接数据库" class="headerlink" title="使用 jdbc 驱动连接数据库"></a>使用 jdbc 驱动连接数据库</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Connection con;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"><span class="comment">//项目中加入jar包，以及jdb驱动</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="comment">//加载数据库驱动</span></span><br><span class="line">  Class.forName(<span class="string">"org.git.mm.mysql.Driver"</span>).newInstance();</span><br><span class="line">  <span class="comment">//数据库链接地址，数据库名：mysql，账号：root/123456</span></span><br><span class="line">  String url = <span class="string">"jdbc:mysql://localhost/mysql?user=root&amp;password=123456"</span>+<span class="string">"useUnicode=true&amp;characterEncoding=8859_1&amp;useSSL=true"</span>;</span><br><span class="line">  <span class="comment">//创建与数据库的连接</span></span><br><span class="line">  con=Driver.Manager.getConnection(url);</span><br><span class="line">  Sys.out.println(<span class="string">"数据库连接成功"</span>)</span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">  e.printStackTrace</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> con</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="el-表达式语法"><a href="#el-表达式语法" class="headerlink" title="el 表达式语法"></a>el 表达式语法</h1><p>以“\${”开头，以“}”结尾</p><h1 id="xml-文件定义"><a href="#xml-文件定义" class="headerlink" title="xml 文件定义"></a>xml 文件定义</h1><ul><li>形成了一种树结构，它从根部开始然后拓展到枝叶。必定包含根元素，是所有其他元素的父元素。而其他元素则是树结构的枝叶</li></ul><h1 id="xml-解析程序设计"><a href="#xml-解析程序设计" class="headerlink" title="xml 解析程序设计"></a>xml 解析程序设计</h1><h1 id="ajax-概念及工作原理"><a href="#ajax-概念及工作原理" class="headerlink" title="ajax 概念及工作原理"></a>ajax 概念及工作原理</h1><ul><li>ajax 又称异步 javascript 和 xml，是一种 web 应用程序，客户机技术是一种创建交互式网页应用的网页开发技术。</li><li>通过浏览器的 ajax 引擎（xmlhttprequest）对象向服务器发送一个请求，并接收服务器的响应数据，然后用 javascript 来操作 dom 到实现动态局部刷新</li></ul><h1 id="strust2-mvc-模式概念及开发环境配置"><a href="#strust2-mvc-模式概念及开发环境配置" class="headerlink" title="strust2 mvc 模式概念及开发环境配置"></a>strust2 mvc 模式概念及开发环境配置</h1><ul><li>是一个基于 mvc 设计模式的 web 应用框架，遵循 mvc 设计理念的开源 web 框架</li><li><p>模型<br>主要负责管理应用程序的数据，通过响应视图的请求和控制器的指令来更新数据，在这其中一般使用 javabean 和 ejb 来实现业务的逻辑操作</p></li><li><p>视图<br>主要用于应用程序中处理数据的显示，在这中主要有 JSP 页面和 actionform 两部分</p></li><li><p>控制器<br>主要负责接收用户的请求和数据，并判断应该将请求和数据交给哪个模型来处理，以及处理后的请求和数据，应该调用哪个视图来显示。action，servlet 是其中的主要控制器</p></li></ul><h1 id="hibernate-orm-概念作用及开发环境配置"><a href="#hibernate-orm-概念作用及开发环境配置" class="headerlink" title="hibernate orm 概念作用及开发环境配置"></a>hibernate orm 概念作用及开发环境配置</h1><ul><li>om 是对象关系映射，他将表与表之间的操作映射为对象与对象之间的操作，从而实现通过操作实体类来操作表的目的。</li><li>hibernate 是 orm 的映射工具，其作为一个持久层框架体现出了它的设计理念，还提供了高效的对象到关系型数据库的持久化服务</li></ul><h1 id="spring-模块组成内容"><a href="#spring-模块组成内容" class="headerlink" title="spring 模块组成内容"></a>spring 模块组成内容</h1><ul><li><p>核心模块<br>主要组成部分是 branfactory 类，该类提供了 spring 框架的核心功能，采用了工厂模式的实现反转控制及依赖注入</p></li><li><p>aop 模块<br>集成了面向切面编程的功能，为基于 spring 的应用系统提供了事务等管理服务</p></li><li><p>dao 模块<br>提供数据库操作的模块代码，他是 jdbc 的抽象层</p></li><li><p>orm 映射模块</p></li><li>mvc 模块<br>支持各种视图技术以及将请求参数绑定到业务对象中</li><li>web 模块<br>提供了 web 应用程序的上下文，它提供了对框架的支持</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;web-服务器概念及类型&quot;&gt;&lt;a href=&quot;#web-服务器概念及类型&quot; class=&quot;headerlink&quot; title=&quot;web 服务器概念及类型&quot;&gt;&lt;/a&gt;web 服务器概念及类型&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;外部服务器又称 www 服务器网站服务器站点服务
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>立即执行函数</title>
@@ -409,27 +431,6 @@
       
       
         &lt;h1 id=&quot;观察者模式&quot;&gt;&lt;a href=&quot;#观察者模式&quot; class=&quot;headerlink&quot; title=&quot;观察者模式&quot;&gt;&lt;/a&gt;观察者模式&lt;/h1&gt;&lt;h2 id=&quot;1-介绍&quot;&gt;&lt;a href=&quot;#1-介绍&quot; class=&quot;headerlink&quot; title=&quot;1. 介绍
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>外观模式</title>
-    <link href="http://www.cipuzp.com/2018/11/04/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://www.cipuzp.com/2018/11/04/外观模式/</id>
-    <published>2018-11-04T03:23:39.484Z</published>
-    <updated>2018-11-04T03:24:33.988Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="外观模式"><a href="#外观模式" class="headerlink" title="外观模式"></a>外观模式</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1. 介绍"></a>1. 介绍</h2><ul><li>为子系统中的一组接口提供了一个高层接口,使用者使用这个高层接口</li></ul><h2 id="2-UML-演示"><a href="#2-UML-演示" class="headerlink" title="2. UML 演示"></a>2. UML 演示</h2><p><a href="https://img-blog.csdnimg.cn/20181104112253216.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0NpcHV6cA==,size_16,color_FFFFFF,t_70" target="_blank" rel="noopener">点击查看</a></p><h2 id="3-代码演示"><a href="#3-代码演示" class="headerlink" title="3. 代码演示"></a>3. 代码演示</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bindEvent</span>(<span class="params">elem, type, selecetor, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (fn == <span class="literal">null</span>) &#123;</span><br><span class="line">    fn = selector</span><br><span class="line">    selector = <span class="literal">null</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line">bindEvent(elem, <span class="string">'click'</span>, <span class="string">'#div1'</span>, fn)</span><br><span class="line">bindEvent(elem, <span class="string">'click'</span>, fn)</span><br></pre></td></tr></table></figure><h2 id="4-场景"><a href="#4-场景" class="headerlink" title="4. 场景"></a>4. 场景</h2><ul><li>去医院看病，接待员去挂号、门诊、划价、取药</li></ul><h2 id="5-设计原则"><a href="#5-设计原则" class="headerlink" title="5. 设计原则"></a>5. 设计原则</h2><ul><li>不符合单一职责原则和开放封闭原则，需谨慎使用，不可滥用</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;外观模式&quot;&gt;&lt;a href=&quot;#外观模式&quot; class=&quot;headerlink&quot; title=&quot;外观模式&quot;&gt;&lt;/a&gt;外观模式&lt;/h1&gt;&lt;h2 id=&quot;1-介绍&quot;&gt;&lt;a href=&quot;#1-介绍&quot; class=&quot;headerlink&quot; title=&quot;1. 介绍&quot;&gt;&lt;/
       
     
     </summary>
