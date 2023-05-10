@@ -8,7 +8,7 @@ export default sidebar([
   { text: "读书笔记", icon: "read", link: "https://newzone.top/reading/" },
   // 指定显示页面
   {
-    text: "🧰 应用手册",
+    text: "🧰 应用手册zhupan",
     icon: "",
     prefix: "/apps/",
     link: "",
